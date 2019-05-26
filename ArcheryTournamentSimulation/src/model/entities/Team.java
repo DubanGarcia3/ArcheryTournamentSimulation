@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Team {
 	
+	
 	private ArrayList<Player> playerList;
 	
 	public Team() {

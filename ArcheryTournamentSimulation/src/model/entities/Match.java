@@ -10,15 +10,19 @@ public class Match {
 	private Team team2;
 	private ArrayList<Weather> weatherList;
 	
-	
 	public Match(Team team1, Team team2, ArrayList<Weather> weatherList) {
 		this.team1 = team1;
 		this.team2 = team2;
 		this.weatherList = new ArrayList<Weather>();
 	}
 	
-	public double getMaxDistance(Team team) {
-		return 0;
+	public Player getWinner() {
+		return null;
+	}
+	
+	
+	public void shoot() {
+		
 	}
 	
 	public Team getTeam1() {

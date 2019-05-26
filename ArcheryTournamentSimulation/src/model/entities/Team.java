@@ -14,11 +14,8 @@ public class Team {
 		return playerList;
 	}
 	
-	public void createTeam() {
-		for (int i = 0; i < 20; i++) {
-			if (playerList.get(i) == null) {
-			}
-		}
+	public void addPlayerToTeam(Player player) {
+		playerList.add(player);
 	}
 
 	public void setPlayerList(ArrayList<Player> playerList) {

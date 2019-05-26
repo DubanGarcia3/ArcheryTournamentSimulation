@@ -34,7 +34,11 @@ public class Controller {
 	}
 	
 	public void createMatch(){
+		createTeamA();
+		createTeamB();
 		match.createMatch(teamA, teamB);
+		removeFourty();
+		removeAll();
 	}
 	
 	public void printMatch() {
@@ -44,15 +48,27 @@ public class Controller {
 		}
 	}
 	
-	public void createTeam(){
+	public void createTeamA(){
 		for (int i = 0; i < 20; i++) {
 			teamA.addPlayerToTeam(listData.get(i));
-			listData.remove(i);
 		}
+	}
+	
+	public void createTeamB() {
 		for (int i = 20; i < 40; i++) {
 			teamB.addPlayerToTeam(listData.get(i));
+		}
+	}
+	
+	public void removeFourty() {
+		for (int i = 0; i < 40; i++) {
 			listData.remove(i);
 		}
+	}
+	
+	public void removeAll(){	
+		teamA.removeAll();
+		teamB.removeAll();
 	}
 	
 	public void manageFile() {
@@ -60,11 +76,14 @@ public class Controller {
 			for (int i = 0; i < fileManager.readFile().size(); i++) {
 				listData.add(this.createPlayer(FileManager.splitLine(fileManager.readFile().get(i), ",")));
 			}
-			for (int i = 0; i < listData.size(); i++) {
-				System.out.println(listData.get(i).toString());
-			}
 		} catch (IOException e) {
 			System.out.println(e);
+		}
+	}
+	
+	public void printData() {
+		for (int i = 0; i < 100; i++) {
+			System.out.println(listData.get(i).toString());
 		}
 	}
 	

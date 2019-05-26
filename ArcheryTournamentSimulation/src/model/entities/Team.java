@@ -21,4 +21,8 @@ public class Team {
 	public void setPlayerList(ArrayList<Player> playerList) {
 		this.playerList = playerList;
 	}
+	
+	public void removeAll() {
+		playerList.removeAll(playerList);
+	}
 }

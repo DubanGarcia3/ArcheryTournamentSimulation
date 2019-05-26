@@ -9,4 +9,6 @@ public class Player {
 	private int exp;
 	private int lucky;
 	
+	
+	
 }

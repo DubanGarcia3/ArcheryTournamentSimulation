@@ -70,5 +70,4 @@ public class Player {
 		return "" + name + " gender=" + gender + " age=" + age + " resistence=" + resistence + " aim="
 				+ aim + "  exp=" + exp + " lucky=" + lucky + "]";
 	}
-	
 }

@@ -26,7 +26,7 @@ public class Shot {
 		this.angle = angle;
 	}
 	
-	public double calcualteVelocity() {
+	public double calcualteDistance() {
 		double b = Math.toRadians(angle);
 		double distance = (Math.pow(velocity, 2)*Math.pow(Math.sin(b), 2))/(2*9.81);
 		return distance;
@@ -39,4 +39,5 @@ public class Shot {
 		System.out.println(" /|                          |__|");
 		System.out.println("/_|_____________________________|");
 	}
+
 }	

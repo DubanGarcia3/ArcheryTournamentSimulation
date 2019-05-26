@@ -1,5 +1,7 @@
 package model.entities;
 
+import java.util.ArrayList;
+
 public class Player {
 	
 	private String name;
@@ -9,6 +11,7 @@ public class Player {
 	private int aim;
 	private int exp;
 	private double lucky;
+	private ArrayList<Shot> listShots;
 	
 	public Player(String name, Gender gender, int age, int resistence, int aim, int exp, double lucky) {
 		this.name = name;
@@ -18,8 +21,37 @@ public class Player {
 		this.aim = aim;
 		this.exp = exp;
 		this.lucky = lucky;
+		listShots = new ArrayList<Shot>();
 	}
 	
+	public void addShot(Shot shot) {
+		listShots.add(shot);
+	}
+	
+	public double getTotalDistance() {
+		double aux = 0;
+		for (int i = 0; i < listShots.size(); i++) {
+			aux += listShots.get(i).calcualteDistance();
+		}
+		return aux;
+	}
+	
+	public void shoot(double velocity, double angle) {
+		int auxResistance = this.resistence;
+		while (auxResistance >= 4) {
+			listShots.add(new Shot(velocity, angle));
+		}
+
+	}
+	
+	public ArrayList<Shot> getListShots() {
+		return listShots;
+	}
+
+	public void setListShots(ArrayList<Shot> listShots) {
+		this.listShots = listShots;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -64,6 +96,8 @@ public class Player {
 	public void setLucky(double lucky) {
 		this.lucky = lucky;
 	}
+	
+	
 
 	@Override
 	public String toString() {

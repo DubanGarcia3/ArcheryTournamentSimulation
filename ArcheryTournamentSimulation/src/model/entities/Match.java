@@ -10,19 +10,17 @@ public class Match {
 	private Team team2;
 	private ArrayList<Weather> weatherList;
 	
-	public Match(Team team1, Team team2, ArrayList<Weather> weatherList) {
-		this.team1 = team1;
-		this.team2 = team2;
+	public Match() {
 		this.weatherList = new ArrayList<Weather>();
+	}
+	
+	public void createMatch(Team teamA, Team teamB) {
+		this.team1 = teamA;
+		this.team2 = teamB;	
 	}
 	
 	public Player getWinner() {
 		return null;
-	}
-	
-	
-	public void shoot() {
-		
 	}
 	
 	public Team getTeam1() {

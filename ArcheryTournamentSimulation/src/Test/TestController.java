@@ -10,6 +10,10 @@ public class TestController {
 		Controller c = Controller.getInstance();
 		c.setFileManager(fileManager);
 		c.manageFile();
+		
+		c.createTeam();
+		c.createMatch();
+		c.printMatch();
 	}
 
 }

@@ -3,10 +3,11 @@ package controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import model.entities.Gender;
+import model.entities.Match;
 import model.entities.Player;
+import model.entities.Team;
 import persistence.FileManager;
 
 public class Controller {
@@ -14,6 +15,9 @@ public class Controller {
 	public static Controller controller;
 	private List<Player> listData;
 	private FileManager fileManager;
+	private Team teamA;
+	private Team teamB;
+	private Match match;
 	
 	public static Controller getInstance() {
 		if (controller == null) {
@@ -24,9 +28,30 @@ public class Controller {
 	
 	private Controller() {
 		listData = new ArrayList<Player>();
-		
+		match = new Match();
+		teamA = new Team();
+		teamB = new Team();
 	}
 	
+	public void createMatch(){
+		match.createMatch(teamA, teamB);
+	}
+	
+	public void printMatch() {
+		System.out.println("TEAM A                                                                                                    	  TEAM B");
+		for (int i = 0; i < 20; i++) {
+			System.out.println(match.getTeam1().getPlayerList().get(i)+"						"+match.getTeam2().getPlayerList().get(i));
+		}
+	}
+	
+	public void createTeam(){
+		for (int i = 0; i < 20; i++) {
+			teamA.addPlayerToTeam(listData.get(i));
+		}
+		for (int i = 20; i < 40; i++) {
+			teamB.addPlayerToTeam(listData.get(i));
+		}
+	}
 	
 	public void manageFile() {
 		try {

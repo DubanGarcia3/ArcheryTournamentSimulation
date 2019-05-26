@@ -31,4 +31,12 @@ public class Shot {
 		double distance = (Math.pow(velocity, 2)*Math.pow(Math.sin(b), 2))/(2*9.81);
 		return distance;
 	}
+	
+	public static void showArchery() {
+		System.out.println("  O                           / |");
+		System.out.println(" /_| >    .  .  .  .  .  >-->|  |");
+		System.out.println(" |||/                        |  |");
+		System.out.println(" /|                          |__|");
+		System.out.println("/_|_____________________________|");
+	}
 }	

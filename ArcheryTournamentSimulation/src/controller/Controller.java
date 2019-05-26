@@ -78,7 +78,4 @@ public class Controller {
 	public void setFileManager(FileManager fileManager) {
 		this.fileManager = fileManager;
 	}
-	
-	
-
 }

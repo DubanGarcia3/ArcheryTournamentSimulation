@@ -2,11 +2,13 @@ package Test;
 
 import java.io.IOException;
 
+import model.entities.Shot;
 import persistence.FileManager;
 
 public class TestPersistence {
 
 	public static void main(String[] args) {
+		
 		FileManager fileManager = new FileManager();
 		try {
 			long startTime = System.currentTimeMillis();
@@ -18,5 +20,6 @@ public class TestPersistence {
 		} catch (IOException e) {
 			System.out.println(e);
 		}
+		
 	}
 }

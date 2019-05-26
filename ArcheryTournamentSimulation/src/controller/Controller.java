@@ -47,9 +47,11 @@ public class Controller {
 	public void createTeam(){
 		for (int i = 0; i < 20; i++) {
 			teamA.addPlayerToTeam(listData.get(i));
+			listData.remove(i);
 		}
 		for (int i = 20; i < 40; i++) {
 			teamB.addPlayerToTeam(listData.get(i));
+			listData.remove(i);
 		}
 	}
 	

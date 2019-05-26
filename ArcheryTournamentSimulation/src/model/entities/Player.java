@@ -11,6 +11,7 @@ public class Player {
 	private int lucky;
 	
 	public Player(String name, Gender gender, int age, int resistence, int aim, int exp, int lucky) {
+		this.name = name;
 		this.gender = gender;
 		this.age = age;
 		this.resistence = resistence;

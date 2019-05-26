@@ -8,9 +8,9 @@ public class Player {
 	private int resistence;
 	private int aim;
 	private int exp;
-	private int lucky;
+	private double lucky;
 	
-	public Player(String name, Gender gender, int age, int resistence, int aim, int exp, int lucky) {
+	public Player(String name, Gender gender, int age, int resistence, int aim, int exp, double lucky) {
 		this.name = name;
 		this.gender = gender;
 		this.age = age;
@@ -58,10 +58,10 @@ public class Player {
 	public void setExp(int exp) {
 		this.exp = exp;
 	}
-	public int getLucky() {
+	public double getLucky() {
 		return lucky;
 	}
-	public void setLucky(int lucky) {
+	public void setLucky(double lucky) {
 		this.lucky = lucky;
 	}
 }

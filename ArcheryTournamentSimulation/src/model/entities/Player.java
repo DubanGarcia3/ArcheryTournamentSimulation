@@ -64,4 +64,5 @@ public class Player {
 	public void setLucky(double lucky) {
 		this.lucky = lucky;
 	}
+	
 }

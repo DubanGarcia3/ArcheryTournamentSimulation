@@ -41,7 +41,6 @@ public class Player {
 		while (auxResistance >= 4) {
 			listShots.add(new Shot(velocity, angle));
 		}
-
 	}
 	
 	public ArrayList<Shot> getListShots() {

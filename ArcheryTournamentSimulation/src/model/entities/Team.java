@@ -10,10 +10,6 @@ public class Team {
 		playerList = new ArrayList<Player>();
 	}
 
-//	public shoot() {
-//		
-//	}
-	
 	public ArrayList<Player> getPlayerList() {
 		return playerList;
 	}

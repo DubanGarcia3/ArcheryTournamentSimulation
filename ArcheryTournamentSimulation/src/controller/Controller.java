@@ -6,7 +6,6 @@ import java.util.List;
 
 import dao.Manager.DaoMatches;
 import model.entities.Gender;
-import model.entities.Match;
 import model.entities.Player;
 import model.entities.Team;
 import persistence.FileManager;
@@ -17,7 +16,8 @@ public class Controller {
 	private List<Player> listData;
 	private FileManager fileManager;
 	private DaoMatches daoMatches;
-	private Match match;
+	private ArrayList<Team> daoTeams;
+	private int count;
 
 	public static Controller getInstance() {
 		if (controller == null) {
@@ -29,36 +29,45 @@ public class Controller {
 	private Controller() {
 		listData = new ArrayList<Player>();
 		daoMatches = new DaoMatches();
+		daoTeams = new ArrayList<Team>();
+		count = 0;
 	}
 
-	public Team createTeam(){
+
+	/**
+	 * Este metodo crea los teams, cargando los jugadores para cada uno, con un tamaño de 20 exactos
+	 * 
+	 * @param init Este parametro ingresa al metodo, para que no cree los TEAMS con los mismos jugadores.
+	 * @return Regresa un Team
+	 */	
+	public Team createTeam(int init){
 		Team team = new Team();
-		for (int i = 0; i < 20; i++) {
+		for (int i = init; i < (init+20); i++) {
 			team.addPlayerToTeam(listData.get(i));
 		}
 		return team;
 	}
-	
-	public void delete() {
-		ArrayList<Player> aux = new ArrayList<Player>();
- 		for (int i = 0; i < 20; i++) {
-			listData.remove(listData.get(i-1));
- 		}
-	}
-	
-	public void printTeams(Team team) {
-		for (int i = 0; i < 20; i++) {
-			System.out.println(team.getPlayerList().get(i));
+	/** 
+	 *Este metodo agrega a una lista de TEAMS, cada team que es creado en el anterior metodo
+	 *Se crean 1000 teams, alrededor de 20 mil jugadores, para un total de 500 partidas. 
+	 */
+	public void addTeams() {
+		for (int i = 0; i < 1000; i++) {
+			daoTeams.add(createTeam(count));
+			count = count + 20;
+			System.out.println(count);
 		}
 	}
-
-
-	//	public void printMatch() {
-	//		System.out.println("TEAM A                                                                                                    	  TEAM B");
-	//		for (int i = 0; i < 20; i++) {
-	//			System.out.println(match.getTeam1().getPlayerList().get(i)+"						"+match.getTeam2().getPlayerList().get(i));
-	//		}
-	//	}
+	/**
+	 * Imprime los jugadores de cada equipo que este en la lista de equipos.
+	 */
+	public void printTeams() {
+		for (int i = 0; i < daoTeams.size(); i++) {
+			for (int j = 0; j < 20; j++) {
+				System.out.println(daoTeams.get(i).getPlayerList().get(j));
+			}
+		}
+	}
 
 	public void manageFile() {
 		try {
@@ -69,19 +78,6 @@ public class Controller {
 			System.out.println(e);
 		}
 	}
-	
-	public void printData() {
-		for (int i = 0; i < 100; i++) {
-			System.out.println(listData.get(i));
-		}
-	}
-
-//	public void printData() {
-//		System.out.println("TEAM A                                                                                                    	  TEAM B");
-//		for (int i = 0; i < 20; i++) {
-//			System.out.println(match.getTeam1().getPlayerList().get(i)+"						"+match.getTeam2().getPlayerList().get(i));
-//		}
-//	}
 
 	public Player createPlayer(String []in) {
 		return new Player(in[0],Gender.valueOf(in[1].toString()), Integer.parseInt(in[2]), Integer.parseInt(in[3]),

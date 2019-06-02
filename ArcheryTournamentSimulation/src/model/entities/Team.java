@@ -29,4 +29,9 @@ public class Team {
 	public void removeAll() {
 		playerList.removeAll(playerList);
 	}
+
+	@Override
+	public String toString() {
+		return "Team [playerList=" + playerList + "]";
+	}
 }

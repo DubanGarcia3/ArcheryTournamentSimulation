@@ -11,11 +11,11 @@ public class TestController {
 		c.setFileManager(fileManager);
 		c.manageFile();
 		
-		c.createMatch();
-		c.printMatch();
-		c.createMatch();
-		c.printMatch();
+		c.printTeams(c.createTeam());
+		c.printData();
+		System.out.println("Borra");
+		c.delete();
+		System.out.println("Ya borro");
 		c.printData();
 	}
-
 }

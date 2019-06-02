@@ -6,6 +6,7 @@ import java.util.List;
 
 import dao.Manager.DaoMatches;
 import model.entities.Gender;
+import model.entities.Match;
 import model.entities.Player;
 import model.entities.Team;
 import persistence.FileManager;
@@ -16,6 +17,7 @@ public class Controller {
 	private List<Player> listData;
 	private FileManager fileManager;
 	private DaoMatches daoMatches;
+	private Match match;
 	private ArrayList<Team> daoTeams;
 	private int count;
 
@@ -32,6 +34,16 @@ public class Controller {
 		daoTeams = new ArrayList<Team>();
 		count = 0;
 	}
+
+	
+	/**
+	 * Metodo crear 1 partida en construccion! 
+	 */
+	public void createMatch() {
+		match = new Match(daoTeams.get(0), daoTeams.get(1));
+		
+	}
+	
 
 
 	/**

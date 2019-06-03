@@ -24,11 +24,17 @@ public class Match {
 	public void generateRound() {
 		for (int i = 0; i < 20; i++) {
 			team1.getPlayerList().get(i).shoot(managerShot);
+			team2.getPlayerList().get(i).shoot(managerShot);
 		}
 	}
 	
-	public Player getWinner() {
-		return null;
+	
+	public void addRound(int valueA, int valueB) {
+		if (team1.calculateTotalDistance()> team2.calculateTotalDistance()) {
+			listRound.add(new Round(team1.calculateTotalDistance(), team1));
+		}else {
+			listRound.add(new Round(team2.calculateTotalDistance(), team2));
+		}
 	}
 	
 	public Team getTeam1() {

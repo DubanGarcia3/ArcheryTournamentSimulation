@@ -2,16 +2,16 @@ package model.entities;
 
 public class Round {
 	
-	private int points;
+	private double points;
 	private Team winnerTeam;
 	
 	
-	public Round(int points, Team winnerTeam) {
-		this.points = points;
+	public Round(double d, Team winnerTeam) {
+		this.points = d;
 		this.winnerTeam = winnerTeam;
 	}
 
-	public int getPoints() {
+	public double getPoints() {
 		return points;
 	}
 

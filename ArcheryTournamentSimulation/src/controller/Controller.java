@@ -48,9 +48,13 @@ public class Controller {
 	public void createMatch() {
 		match = new Match(daoTeams.get(0), daoTeams.get(1), managerShot, weather.getListWeather().get((int) (Math.random() * 500)));
 		match.generateRound();
-		for (int i = 0; i < daoTeams.get(0).getPlayerList().size(); i++) {
-			System.out.println("Disparo jugador " + i +"--->\t"+ daoTeams.get(0).getPlayerList().get(i).getListShots().toString());
-		}
+		daoTeams.get(0).calculateTotalDistance();
+		daoTeams.get(1).calculateTotalDistance();
+//		System.out.println("team1 "+ daoTeams.get(0).calculateTotalDistance());
+//		System.out.println("team2 "+ daoTeams.get(1).calculateTotalDistance());
+//		for (int i = 0; i < daoTeams.get(0).getPlayerList().size(); i++) {
+//			System.out.println("Disparo jugador " + i +"--->\t"+ daoTeams.get(0).getPlayerList().get(i).getListShots().toString());
+//		}
 	}
 
 	/**

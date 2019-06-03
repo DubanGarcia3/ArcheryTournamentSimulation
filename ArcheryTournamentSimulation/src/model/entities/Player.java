@@ -2,6 +2,8 @@ package model.entities;
 
 import java.util.ArrayList;
 
+import dao.Manager.ManagerShot;
+
 public class Player {
 	
 	private String name;
@@ -32,10 +34,10 @@ public class Player {
 		return aux;
 	}
 	
-	public void shoot(Shot shot) {
+	public void shoot(ManagerShot managerShot) {
 		int auxResistance = this.resistence;
 		while (auxResistance >= 4) {
-			listShots.add(shot);
+			listShots.add(managerShot.getRandomShot());
 			this.resistence -=4;
 		}
 	}

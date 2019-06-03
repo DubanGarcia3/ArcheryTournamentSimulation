@@ -42,8 +42,6 @@ public class Controller {
 		match = new Match(daoTeams.get(0), daoTeams.get(1));
 		
 	}
-	
-
 
 	/**
 	 * Este metodo crea los teams, cargando los jugadores para cada uno, con un tamaño de 20 exactos

@@ -24,10 +24,6 @@ public class Player {
 		listShots = new ArrayList<Shot>();
 	}
 	
-	public void addShot(Shot shot) {
-		listShots.add(shot);
-	}
-	
 	public double getTotalDistance() {
 		double aux = 0;
 		for (int i = 0; i < listShots.size(); i++) {
@@ -36,10 +32,11 @@ public class Player {
 		return aux;
 	}
 	
-	public void shoot(double velocity, double angle) {
+	public void shoot(Shot shot) {
 		int auxResistance = this.resistence;
 		while (auxResistance >= 4) {
-			listShots.add(new Shot(velocity, angle));
+			listShots.add(shot);
+			this.resistence -=4;
 		}
 	}
 	

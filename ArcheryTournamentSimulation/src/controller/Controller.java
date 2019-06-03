@@ -10,6 +10,7 @@ import model.entities.Gender;
 import model.entities.Match;
 import model.entities.Player;
 import model.entities.Team;
+import model.entities.Weather;
 import persistence.FileManager;
 
 public class Controller {
@@ -22,6 +23,7 @@ public class Controller {
 	private ArrayList<Team> daoTeams;
 	private int count;
 	private ManagerShot managerShot;
+	private Weather weather;
 
 	public static Controller getInstance() {
 		if (controller == null) {
@@ -35,6 +37,8 @@ public class Controller {
 		daoMatches = new DaoMatches();
 		daoTeams = new ArrayList<Team>();
 		managerShot = new ManagerShot();
+		fileManager = new FileManager();
+		weather = new Weather();
 		count = 0;
 	}
 
@@ -42,8 +46,11 @@ public class Controller {
 	 * Metodo crear 1 partida en construccion! 
 	 */
 	public void createMatch() {
-//		match = new Match(daoTeams.get(0), daoTeams.get(1));
-		
+		match = new Match(daoTeams.get(0), daoTeams.get(1), managerShot, weather.getListWeather().get((int) (Math.random() * 500)));
+		match.generateRound();
+		for (int i = 0; i < daoTeams.get(0).getPlayerList().size(); i++) {
+			System.out.println("Disparo jugador " + i +"--->\t"+ daoTeams.get(0).getPlayerList().get(i).getListShots().toString());
+		}
 	}
 
 	/**
@@ -67,7 +74,6 @@ public class Controller {
 		for (int i = 0; i < 1000; i++) {
 			daoTeams.add(createTeam(count));
 			count = count + 20;
-			System.out.println(count);
 		}
 	}
 	/**
@@ -83,7 +89,7 @@ public class Controller {
 
 	public void manageFile() {
 		try {
-			for (int i = 0; i < fileManager.readFile().size(); i++) {
+			for (int i = 0; i < FileManager.readFile().size(); i++) {
 				listData.add(this.createPlayer(FileManager.splitLine(fileManager.readFile().get(i), ",")));
 			}
 		} catch (IOException e) {
@@ -94,6 +100,17 @@ public class Controller {
 	public Player createPlayer(String []in) {
 		return new Player(in[0],Gender.valueOf(in[1].toString()), Integer.parseInt(in[2]), Integer.parseInt(in[3]),
 				Integer.parseInt(in[4]), Integer.parseInt(in[5]), Double.parseDouble(in[6]));
+	}
+	
+	public void loadData() {
+		this.manageFile();
+		this.addTeams();
+		try {
+			FileManager.readFileLanzamientos();
+			FileManager.readFileWeather();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
 	}
 
 	public FileManager getFileManager() {

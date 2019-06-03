@@ -7,22 +7,29 @@ import java.util.List;
 import persistence.FileManager;
 
 public class Weather {
+	
+	private String name;
 
-	public Weather() {
-		
+	public Weather(String name) {
+		this.name = name;
 	}
 	
-	public List<String> getListWeather() {
-		List<String> list = new ArrayList<String>();
+	
+	public Weather() {
+		super();
+	}
+
+	public List<Weather> getListWeather() {
+		List<Weather> list = new ArrayList<>();
 		try {
 			for (int i = 0; i < FileManager.readFileWeather().size(); i++) {
 				if (Double.parseDouble(FileManager.readFileWeather().get(i)) >= 3 && Double.parseDouble(FileManager.readFileWeather().get(i)) <=48) {
-					list.add("Lluvia");
+					list.add(new Weather("Lluvia"));
 				}else if (Double.parseDouble(FileManager.readFileWeather().get(i)) >= 48 && Double.parseDouble(FileManager.readFileWeather().get(i)) <=100) {
-					list.add("soleado");
+					list.add(new Weather("Soleado"));
 				}else if (Double.parseDouble(FileManager.readFileWeather().get(i)) < 3) {
 					
-					list.add("viento");
+					list.add(new Weather("viento"));
 				} 
 			}
 		} catch (IOException e) {

@@ -21,9 +21,9 @@ public class Match {
 		this.managerShot = managerShot;
 	}
 	
-	public void generateround() {
+	public void generateRound() {
 		for (int i = 0; i < 20; i++) {
-			team1.getPlayerList().get(i).shoot(managerShot.getRandomShot());
+			team1.getPlayerList().get(i).shoot(managerShot);
 		}
 	}
 	

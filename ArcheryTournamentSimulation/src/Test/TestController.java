@@ -6,12 +6,13 @@ import persistence.FileManager;
 public class TestController {
 	
 	public static void main(String[] args) {
-		FileManager fileManager = new FileManager();
 		Controller c = Controller.getInstance();
-		c.setFileManager(fileManager);
 		c.manageFile();
-		
+		//carga los teams y los player
 		c.addTeams();
 		c.printTeams();
+		
+		
+		
 	}
 }

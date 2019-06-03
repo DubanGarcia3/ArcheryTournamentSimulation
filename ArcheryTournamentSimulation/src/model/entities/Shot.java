@@ -32,6 +32,11 @@ public class Shot {
 		return distance;
 	}
 	
+	@Override
+	public String toString() {
+		return "Shot [velocity=" + velocity + ", angle=" + angle + "]";
+	}
+
 	public static void showArchery() {
 		System.out.println("  O                           / |");
 		System.out.println(" /_| >    .  .  .  .  .  >-->|  |");

@@ -29,8 +29,7 @@ public class ManagerShot {
 	}
 	
 	public Shot getRandomShot() {
-		SecureRandom secureRandom = new SecureRandom();
-		return listshot.get(secureRandom.nextInt(201) + 0);
+		return listshot.get((int) ((Math.random() * 200) + 1));
 	}
 
 	public Shot createShot(String []shot) {

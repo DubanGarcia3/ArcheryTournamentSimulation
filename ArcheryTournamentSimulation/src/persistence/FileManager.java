@@ -10,7 +10,7 @@ import java.util.List;
 
 public class FileManager {
 
-	public List<String> readFile() throws IOException{
+	public static List<String> readFile() throws IOException{
 		List<String> listLines;
 		listLines = Files.readAllLines(Paths.get("src/data/jugadores10k.csv"));
 		return listLines;		

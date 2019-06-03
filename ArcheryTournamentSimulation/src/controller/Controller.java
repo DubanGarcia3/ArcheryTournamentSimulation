@@ -35,7 +35,6 @@ public class Controller {
 		count = 0;
 	}
 
-	
 	/**
 	 * Metodo crear 1 partida en construccion! 
 	 */

@@ -29,7 +29,9 @@ public class ManagerShot {
 	}
 	
 	public Shot getRandomShot() {
-		return listshot.get((int) ((Math.random() * 200) + 1));
+		int a =(int) ((Math.random() * 199)+0);
+		System.out.println(a);
+		return listshot.get(a);
 	}
 
 	public Shot createShot(String []shot) {

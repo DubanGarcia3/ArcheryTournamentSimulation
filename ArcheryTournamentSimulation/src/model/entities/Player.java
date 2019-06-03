@@ -38,7 +38,7 @@ public class Player {
 		int auxResistance = this.resistence;
 		while (auxResistance >= 4) {
 			listShots.add(managerShot.getRandomShot());
-			this.resistence -=4;
+			auxResistance -=4;
 		}
 	}
 	

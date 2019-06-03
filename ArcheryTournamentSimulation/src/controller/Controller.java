@@ -105,6 +105,7 @@ public class Controller {
 	public void loadData() {
 		this.manageFile();
 		this.addTeams();
+		managerShot.addFromPersistence();
 		try {
 			FileManager.readFileLanzamientos();
 			FileManager.readFileWeather();

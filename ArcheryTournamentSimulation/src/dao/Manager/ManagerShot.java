@@ -19,7 +19,7 @@ public class ManagerShot {
 		try {
 			for (int i = 0; i < FileManager.readFileLanzamientos().size(); i++) {
 				if (FileManager.readFileLanzamientos() != null) {
-					listshot.add(this.createPlayer(FileManager.splitLine(FileManager.readFileLanzamientos().get(i), ",")));
+					listshot.add(this.createShot(FileManager.splitLine(FileManager.readFileLanzamientos().get(i), ",")));
 				}
 			}
 		} catch (IOException e) {
@@ -27,7 +27,7 @@ public class ManagerShot {
 		}
 	}
 
-	public Shot createPlayer(String []in) {
-		return new Shot(Double.parseDouble(in[0]), Double.parseDouble(in[1]));
+	public Shot createShot(String []shot) {
+		return new Shot(Double.parseDouble(shot[0]), Double.parseDouble(shot[1]));
 	}
 }

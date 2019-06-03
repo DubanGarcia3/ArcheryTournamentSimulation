@@ -39,5 +39,4 @@ public class Shot {
 		System.out.println(" /|                          |__|");
 		System.out.println("/_|_____________________________|");
 	}
-
 }	

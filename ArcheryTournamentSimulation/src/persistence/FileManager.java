@@ -15,6 +15,12 @@ public class FileManager {
 		listLines = Files.readAllLines(Paths.get("src/data/jugadores10k.csv"));
 		return listLines;		
 	}
+	
+	public static List<String> readFileWeather() throws IOException{
+		List<String> listLines;
+		listLines = Files.readAllLines(Paths.get("src/data/datosClimaSinresolver.csv"));
+		return listLines;		
+	}
 
 	public static String[] readPoker() throws IOException{
 		FileReader fileReader = new FileReader(new File("src/data/datosPoker.txt"));

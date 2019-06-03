@@ -2,22 +2,29 @@ package model.entities;
 
 import java.util.ArrayList;
 
+import dao.Manager.ManagerShot;
 import model.entities.Team;
 
 public class Match {
 	
 	private Team team1;
 	private Team team2;
-	private ArrayList<Weather> weatherList;
+	private Weather weather;
+	private ArrayList<Round> listRound;
+	private ManagerShot managerShot;
 	
-	public Match(Team teamA, Team teamB) {
-		this.weatherList = new ArrayList<Weather>();
+	public Match(Team teamA, Team teamB, ManagerShot managerShot, Weather weather) {
+		this.managerShot = managerShot;
 		this.team1 = teamA;
 		this.team2 = teamB;	
+		this.weather = weather;
+		this.managerShot = managerShot;
 	}
 	
-	public void createMatch() {
-		
+	public void generateround() {
+		for (int i = 0; i < 20; i++) {
+			team1.getPlayerList().get(i).shoot(managerShot.getRandomShot());
+		}
 	}
 	
 	public Player getWinner() {
@@ -36,10 +43,4 @@ public class Match {
 	public void setTeam2(Team team2) {
 		this.team2 = team2;
 	}
-	public ArrayList<Weather> getWeatherList() {
-		return weatherList;
-	}
-	public void setWeatherList(ArrayList<Weather> weatherList) {
-		this.weatherList = weatherList;
-	}	
 }

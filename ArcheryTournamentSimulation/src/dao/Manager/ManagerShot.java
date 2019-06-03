@@ -1,6 +1,7 @@
 package dao.Manager;
 
 import java.io.IOException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class ManagerShot {
 	
 	private List<Shot> listshot;
 
-	public ManagerShot(List<Shot> listshot) {
+	public ManagerShot() {
 		this.listshot = new ArrayList<Shot>();
 	}
 	
@@ -25,6 +26,11 @@ public class ManagerShot {
 		} catch (IOException e) {
 			System.out.println(e);
 		}
+	}
+	
+	public Shot getRandomShot() {
+		SecureRandom secureRandom = new SecureRandom();
+		return listshot.get(secureRandom.nextInt(201) + 0);
 	}
 
 	public Shot createShot(String []shot) {

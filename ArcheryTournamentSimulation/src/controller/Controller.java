@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dao.Manager.DaoMatches;
+import dao.Manager.ManagerShot;
 import model.entities.Gender;
 import model.entities.Match;
 import model.entities.Player;
@@ -20,6 +21,7 @@ public class Controller {
 	private Match match;
 	private ArrayList<Team> daoTeams;
 	private int count;
+	private ManagerShot managerShot;
 
 	public static Controller getInstance() {
 		if (controller == null) {
@@ -32,6 +34,7 @@ public class Controller {
 		listData = new ArrayList<Player>();
 		daoMatches = new DaoMatches();
 		daoTeams = new ArrayList<Team>();
+		managerShot = new ManagerShot();
 		count = 0;
 	}
 
@@ -39,7 +42,7 @@ public class Controller {
 	 * Metodo crear 1 partida en construccion! 
 	 */
 	public void createMatch() {
-		match = new Match(daoTeams.get(0), daoTeams.get(1));
+//		match = new Match(daoTeams.get(0), daoTeams.get(1));
 		
 	}
 

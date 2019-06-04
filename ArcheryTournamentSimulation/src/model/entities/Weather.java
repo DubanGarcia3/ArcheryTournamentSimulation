@@ -14,7 +14,6 @@ public class Weather {
 		this.name = name;
 	}
 	
-	
 	public Weather() {
 		super();
 	}

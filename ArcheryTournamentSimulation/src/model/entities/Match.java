@@ -23,10 +23,15 @@ public class Match {
 	
 	public void generateRound() {
 		for (int i = 0; i < 20; i++) {
-			team1.getPlayerList().get(i).getListShots().clear();
-			team2.getPlayerList().get(i).getListShots().clear();
 			team1.getPlayerList().get(i).shoot(managerShot);
 			team2.getPlayerList().get(i).shoot(managerShot);
+		}
+	}
+	
+	public void clearList() {
+		for (int i = 0; i < 20; i++) {
+			team1.getPlayerList().get(i).getListShots().clear();
+			team2.getPlayerList().get(i).getListShots().clear();
 		}
 	}
 	

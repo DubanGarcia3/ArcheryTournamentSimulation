@@ -119,9 +119,9 @@ public class Controller {
 
 	public void manageFile() {
 		try {
-			List<String> file = FileManager.readFile();
-			for (int i = 0; i < file.size(); i++) {
-				listData.add(this.createPlayer(FileManager.splitLine(file.get(i), ",")));
+			List<String> x = FileManager.readFile();
+			for (int i = 0; i < FileManager.readFile().size(); i++) {
+				listData.add(this.createPlayer(FileManager.splitLine(FileManager.readFile().get(i), ",")));
 			}
 		} catch (IOException e) {
 			System.out.println(e);

@@ -53,7 +53,7 @@ public class Controller {
 			match.generateRound();
 			double valueA = daoTeams.get(0).calculateTotalDistance();
 			double valueB = daoTeams.get(1).calculateTotalDistance();
-			//incrementa la distancia en diparo para el que tenga exp >=18
+			//incrementa la distancia en diparo para el que tenga exp =18
 			daoTeams.get(0).incrementDistance();
 			daoTeams.get(1).incrementDistance();
 			
@@ -85,13 +85,6 @@ public class Controller {
 		match.calculateindividualWinner().incrementEXP();
 		System.out.println(match.calculateindividualWinner() + " distancia: "+
 				match.calculateindividualWinner().getTotalDistance()+" mts");
-	}
-	
-	/**
-	 * 
-	 */
-	public void manageIncrementDistance() {
-		
 	}
 
 	/**

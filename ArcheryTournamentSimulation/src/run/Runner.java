@@ -9,5 +9,4 @@ public class Runner {
 		controller.loadData();
 		controller.createMatch();
 	}
-
 }

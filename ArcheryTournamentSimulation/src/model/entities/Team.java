@@ -18,7 +18,6 @@ public class Team {
 		for (int i = 0; i < playerList.size(); i++) {
 			for (int j = 0; j < playerList.get(i).getListShots().size(); j++) {
 				aux+=playerList.get(i).getListShots().get(j).calcualteDistance();
-				
 			}
 		}
 		return aux;

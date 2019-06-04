@@ -48,19 +48,15 @@ public class Controller {
 	 */
 	public void createMatch() {
 		match = new Match(daoTeams.get(0), daoTeams.get(1), managerShot, weather.getListWeather().get((int) (Math.random() * 500) + 0));
-		for (int i = 0; i < 20; i++) {
-			if (match.getCountTeamA() <= 10 || match.getCountTeamB() <= 10) {
-				match.clearList();
-				match.generateRound();
-				double valueA = daoTeams.get(0).calculateTotalDistance();
-				double valueB = daoTeams.get(1).calculateTotalDistance();
-				if ( valueA > valueB ) {
-					match.addRound(daoTeams.get(0).calculateTotalDistance() , daoTeams.get(0).getId());
-				}else {
-					match.addRound(daoTeams.get(1).calculateTotalDistance() , daoTeams.get(1).getId());
-				}
+		while (match.getCountTeamA() >= 10  || match.getCountTeamB() >= 10) {
+			match.clearList();
+			match.generateRound();
+			double valueA = daoTeams.get(0).calculateTotalDistance();
+			double valueB = daoTeams.get(1).calculateTotalDistance();
+			if ( valueA > valueB ) {
+				match.addRound(daoTeams.get(0).calculateTotalDistance() , daoTeams.get(0).getId());
 			}else {
-				break;
+				match.addRound(daoTeams.get(1).calculateTotalDistance() , daoTeams.get(1).getId());
 			}
 		}
 

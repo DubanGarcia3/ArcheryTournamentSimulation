@@ -12,6 +12,8 @@ public class Match {
 	private Weather weather;
 	private ArrayList<Round> listRound;
 	private ManagerShot managerShot;
+	private int countTeamA;
+	private int countTeamB;
 	
 	public Match(Team teamA, Team teamB, ManagerShot managerShot, Weather weather) {
 		this.team1 = teamA;
@@ -19,6 +21,8 @@ public class Match {
 		this.weather = weather;
 		this.managerShot = managerShot;
 		this.listRound = new ArrayList<Round>();
+		this.countTeamA = 0;
+		this.countTeamB = 0;
 	}
 	
 	public void generateRound() {
@@ -35,10 +39,32 @@ public class Match {
 		}
 	}
 	
-	public void addRound(double d, int winnerTeam ) {
+	
+	public void addRound(double d, int winnerTeam) {
+		if(winnerTeam == team1.getId()) {
+			countTeamA++;
+		}else {
+			countTeamB++;
+		}
 		listRound.add(new Round(d, winnerTeam));
 	}
 	
+	public int getCountTeamA() {
+		return countTeamA;
+	}
+
+	public void setCountTeamA(int countTeamA) {
+		this.countTeamA = countTeamA;
+	}
+
+	public int getCountTeamB() {
+		return countTeamB;
+	}
+
+	public void setCountTeamB(int countTeamB) {
+		this.countTeamB = countTeamB;
+	}
+
 	public Team getTeam1() {
 		return team1;
 	}

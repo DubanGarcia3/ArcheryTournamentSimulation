@@ -48,27 +48,34 @@ public class Controller {
 	 */
 	public void createMatch() {
 		match = new Match(daoTeams.get(0), daoTeams.get(1), managerShot, weather.getListWeather().get((int) (Math.random() * 500) + 0));
-		for (int i = 0; i < 10; i++) {
-			match.clearList();
-			match.generateRound();
-			double valueA = daoTeams.get(0).calculateTotalDistance();
-			double valueB = daoTeams.get(1).calculateTotalDistance();
-			if ( valueA > valueB ) {
-				match.addRound(daoTeams.get(0).calculateTotalDistance() , daoTeams.get(0).getId());
+		for (int i = 0; i < 20; i++) {
+			if (match.getCountTeamA() <= 10 || match.getCountTeamB() <= 10) {
+				match.clearList();
+				match.generateRound();
+				double valueA = daoTeams.get(0).calculateTotalDistance();
+				double valueB = daoTeams.get(1).calculateTotalDistance();
+				if ( valueA > valueB ) {
+					match.addRound(daoTeams.get(0).calculateTotalDistance() , daoTeams.get(0).getId());
+				}else {
+					match.addRound(daoTeams.get(1).calculateTotalDistance() , daoTeams.get(1).getId());
+				}
 			}else {
-				match.addRound(daoTeams.get(1).calculateTotalDistance() , daoTeams.get(1).getId());
+				break;
 			}
 		}
-		
+
+		System.out.println("TEAM A"+match.getCountTeamA());
+		System.out.println("TEAM B"+match.getCountTeamB());
+
 		for (int i = 0; i < match.getListRound().size(); i++) {
 			System.out.println(match.getListRound().get(i));
 		}
-		
-//		System.out.println("team1 "+ daoTeams.get(0).calculateTotalDistance());
-//		System.out.println("team2 "+ daoTeams.get(1).calculateTotalDistance());
-//		for (int i = 0; i < daoTeams.get(0).getPlayerList().size(); i++) {
-//			System.out.println("Disparo jugador " + i +"--->\t"+ daoTeams.get(0).getPlayerList().get(i).getListShots().toString());
-//		}
+
+		//		System.out.println("team1 "+ daoTeams.get(0).calculateTotalDistance());
+		//		System.out.println("team2 "+ daoTeams.get(1).calculateTotalDistance());
+		//		for (int i = 0; i < daoTeams.get(0).getPlayerList().size(); i++) {
+		//			System.out.println("Disparo jugador " + i +"--->\t"+ daoTeams.get(0).getPlayerList().get(i).getListShots().toString());
+		//		}
 	}
 
 	/**
@@ -119,7 +126,7 @@ public class Controller {
 		return new Player(in[0],Gender.valueOf(in[1].toString()), Integer.parseInt(in[2]), Integer.parseInt(in[3]),
 				Integer.parseInt(in[4]), Integer.parseInt(in[5]), Double.parseDouble(in[6]));
 	}
-	
+
 	public void loadData() {
 		this.manageFile();
 		this.addTeams();

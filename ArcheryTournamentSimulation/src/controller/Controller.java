@@ -48,7 +48,7 @@ public class Controller {
 	 */
 	public void createMatch() {
 		match = new Match(daoTeams.get(0), daoTeams.get(1), managerShot, weather.getListWeather().get((int) (Math.random() * 500) + 0));
-		while (match.getCountTeamA() <= 10  &&  match.getCountTeamB() <= 10) {
+		while (match.getCountTeamA() < 10  &&  match.getCountTeamB() < 10) {
 			match.clearList();
 			match.generateRound();
 			double valueA = daoTeams.get(0).calculateTotalDistance();

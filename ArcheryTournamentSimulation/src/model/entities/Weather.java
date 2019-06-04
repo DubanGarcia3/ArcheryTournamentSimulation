@@ -21,12 +21,13 @@ public class Weather {
 	public List<Weather> getListWeather() {
 		List<Weather> list = new ArrayList<>();
 		try {
-			for (int i = 0; i < FileManager.readFileWeather().size(); i++) {
-				if (Double.parseDouble(FileManager.readFileWeather().get(i)) >= 3 && Double.parseDouble(FileManager.readFileWeather().get(i)) <=48) {
+			List<String> aux = FileManager.readFileWeather();
+			for (int i = 0; i < aux.size(); i++) {
+				if (Double.parseDouble(aux.get(i)) >= 3 && Double.parseDouble(aux.get(i)) <=48) {
 					list.add(new Weather("Lluvia"));
-				}else if (Double.parseDouble(FileManager.readFileWeather().get(i)) >= 48 && Double.parseDouble(FileManager.readFileWeather().get(i)) <=100) {
+				}else if (Double.parseDouble(aux.get(i)) >= 48 && Double.parseDouble(aux.get(i)) <=100) {
 					list.add(new Weather("Soleado"));
-				}else if (Double.parseDouble(FileManager.readFileWeather().get(i)) < 3) {
+				}else if (Double.parseDouble(aux.get(i)) < 3) {
 					
 					list.add(new Weather("viento"));
 				} 

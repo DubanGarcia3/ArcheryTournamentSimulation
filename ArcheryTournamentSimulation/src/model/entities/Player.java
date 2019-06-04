@@ -100,6 +100,14 @@ public class Player {
 		return "" + name + " gender=" + gender + " age=" + age + " resistence=" + resistence + " aim="
 				+ aim + "  exp=" + exp + " lucky=" + lucky ;
 	}
+	
+	public void incrementDistance() {
+		if (exp >= 18) {
+			for (int i = 0; i < listShots.size(); i++) {
+				listShots.get(i).incrementDistance(0.025); 
+			}
+		}
+	}
 
 	public void incrementEXP() {
 		exp = exp+2;

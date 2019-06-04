@@ -53,6 +53,10 @@ public class Controller {
 			match.generateRound();
 			double valueA = daoTeams.get(0).calculateTotalDistance();
 			double valueB = daoTeams.get(1).calculateTotalDistance();
+			//incrementa la distancia en diparo para el que tenga exp >=18
+			daoTeams.get(0).incrementDistance();
+			daoTeams.get(1).incrementDistance();
+			
 			if ( valueA > valueB ) {
 				match.addRound(daoTeams.get(0).calculateTotalDistance() , daoTeams.get(0).getId());
 			}else {
@@ -83,6 +87,12 @@ public class Controller {
 				match.calculateindividualWinner().getTotalDistance()+" mts");
 	}
 	
+	/**
+	 * 
+	 */
+	public void manageIncrementDistance() {
+		
+	}
 
 	/**
 	 * Este metodo crea los teams, cargando los jugadores para cada uno, con un tamaño de 20 exactos

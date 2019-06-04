@@ -21,6 +21,12 @@ public class Team {
 		return aux;
 	}
 	
+	public void incrementDistance() {
+		for (int i = 0; i < playerList.size(); i++) {
+			playerList.get(i).incrementDistance();
+		}
+	}
+	
 	public Player getIndividualWinner() {
 		Player max = null;
 		double aux =0;

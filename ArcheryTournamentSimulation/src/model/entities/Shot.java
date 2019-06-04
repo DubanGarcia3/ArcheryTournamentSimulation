@@ -32,6 +32,10 @@ public class Shot {
 		return distance;
 	}
 	
+	public double incrementDistance(double increment) {
+		return calcualteDistance() + (calcualteDistance()*increment); 
+	}
+	
 	@Override
 	public String toString() {
 		return "Shot [velocity=" + velocity + ", angle=" + angle + "]";

@@ -78,6 +78,7 @@ public class Controller {
 	 * metodo que saca el ganador por ronda individual
 	 */
 	public void manageIndividualWinner() {
+		match.calculateindividualWinner().incrementEXP();
 		System.out.println(match.calculateindividualWinner() + " distancia: "+
 				match.calculateindividualWinner().getTotalDistance()+" mts");
 	}

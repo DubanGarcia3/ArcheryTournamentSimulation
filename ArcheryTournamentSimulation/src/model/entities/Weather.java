@@ -15,7 +15,6 @@ public class Weather {
 	}
 	
 	public Weather() {
-		super();
 	}
 
 	public List<Weather> getListWeather() {
@@ -24,12 +23,12 @@ public class Weather {
 			List<String> aux = FileManager.readFileWeather();
 			for (int i = 0; i < aux.size(); i++) {
 				if (Double.parseDouble(aux.get(i)) >= 3 && Double.parseDouble(aux.get(i)) <=48) {
-					list.add(new Weather("Lluvia"));
+					list.add(new Weather("Lluvioso"));
 				}else if (Double.parseDouble(aux.get(i)) >= 48 && Double.parseDouble(aux.get(i)) <=100) {
 					list.add(new Weather("Soleado"));
 				}else if (Double.parseDouble(aux.get(i)) < 3) {
 					
-					list.add(new Weather("viento"));
+					list.add(new Weather("Viento"));
 				} 
 			}
 		} catch (IOException e) {
@@ -42,5 +41,13 @@ public class Weather {
 		for (int i = 0; i < this.getListWeather().size(); i++) {
 			System.out.println(this.getListWeather().get(i).toString());
 		}
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }

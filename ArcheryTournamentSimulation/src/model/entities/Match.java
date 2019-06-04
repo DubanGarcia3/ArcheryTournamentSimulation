@@ -25,6 +25,22 @@ public class Match {
 		this.countTeamB = 0;
 	}
 	
+	public void calculateShootOnWeather() {
+		for (int i = 0; i < 20; i++) {
+			if (weather.getName().equalsIgnoreCase("Soleado")) {
+				//no pasa nada :) 
+			}else if (weather.getName().equalsIgnoreCase("Lluvioso")) {
+				team1.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
+				team2.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
+				
+			}else if (weather.getName().equalsIgnoreCase("Viento")) {
+				team1.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
+				team2.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
+			}
+		}
+	}
+	
+	
 	public Player calculateindividualWinner() {
 		if (team1.getIndividualWinner().getTotalDistance() >= team2.getIndividualWinner().getTotalDistance() ) {
 			return team1.getIndividualWinner();

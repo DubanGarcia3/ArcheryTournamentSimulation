@@ -79,6 +79,22 @@ public class Controller {
 	}
 	
 	/**
+	 * metodo que maneja las variables exogenas (clima )
+	 */
+	public void manageWeatherOnShot() {
+		for (int i = 0; i < match.getTeam1().getPlayerList().size(); i++) {
+			System.out.println(match.getTeam1().getPlayerList().get(i).getListShots());
+		}
+		match.calculateShootOnWeather();
+		System.out.println(match.getWeather().getName());
+		System.out.println("modioficada por anomalia en el clima");
+		for (int i = 0; i < match.getTeam1().getPlayerList().size(); i++) {
+			System.out.println(match.getTeam1().getPlayerList().get(i).getListShots());
+		}
+	}
+	
+	
+	/**
 	 * metodo que saca el ganador por ronda individual
 	 */
 	public void manageIndividualWinner() {

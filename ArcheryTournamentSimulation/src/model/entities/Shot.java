@@ -4,10 +4,12 @@ public class Shot {
 	
 	private double velocity;
 	private double angle;
+	private double distance;
 	
 	public Shot(double velocity, double angle) {
 		this.velocity = velocity;
 		this.angle = angle;
+		this.distance = calcualteDistance();
 	}
 
 	public double getVelocity() {
@@ -28,17 +30,21 @@ public class Shot {
 	
 	public double calcualteDistance() {
 		double b = Math.toRadians(angle);
-		double distance = (Math.pow(velocity, 2)*Math.pow(Math.sin(b), 2))/(2*9.81);
+		this.distance = (Math.pow(velocity, 2)*Math.pow(Math.sin(b), 2))/(2*9.81);
 		return distance;
 	}
 	
-	public double incrementDistance(double increment) {
-		return calcualteDistance() + (calcualteDistance()*increment); 
+	public void incrementDistance(double increment) {
+		this.distance += (this.distance*increment); 
+	}
+	
+	public void decrementDistance(double decrement) {
+		this.distance -= (this.distance * decrement);
 	}
 	
 	@Override
 	public String toString() {
-		return "Shot [velocity=" + velocity + ", angle=" + angle + "]";
+		return "velocity= " + velocity + ", angle=" + angle +" Distance: "+ distance;
 	}
 
 	public static void showArchery() {

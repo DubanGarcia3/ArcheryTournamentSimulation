@@ -42,6 +42,30 @@ public class Player {
 		}
 	}
 	
+	public void incrementDistance() {
+		if (exp >= 18) {
+			for (int i = 0; i < listShots.size(); i++) {
+				listShots.get(i).incrementDistance(0.025); 
+			}
+		}
+	}
+
+	public void calculateShootsOnWeather(String weather) {
+		if (weather.equalsIgnoreCase("Lluvioso")) {
+			for (int i = 0; i < listShots.size(); i++) {
+				listShots.get(i).decrementDistance(0.08);
+			}
+		}else if (weather.equalsIgnoreCase("Viento")) {
+			for (int i = 0; i < listShots.size(); i++) {
+				listShots.get(i).decrementDistance(0.04);
+			}
+		}
+	}
+
+	public void incrementEXP() {
+		exp = exp+2;
+	}
+	
 	public ArrayList<Shot> getListShots() {
 		return listShots;
 	}
@@ -99,17 +123,5 @@ public class Player {
 	public String toString() {
 		return "" + name + " gender=" + gender + " age=" + age + " resistence=" + resistence + " aim="
 				+ aim + "  exp=" + exp + " lucky=" + lucky ;
-	}
-	
-	public void incrementDistance() {
-		if (exp >= 18) {
-			for (int i = 0; i < listShots.size(); i++) {
-				listShots.get(i).incrementDistance(0.025); 
-			}
-		}
-	}
-
-	public void incrementEXP() {
-		exp = exp+2;
 	}
 }

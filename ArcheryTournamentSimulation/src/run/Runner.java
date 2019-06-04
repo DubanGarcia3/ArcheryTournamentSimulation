@@ -9,5 +9,7 @@ public class Runner {
 		controller.loadData();
 		controller.createMatch();
 		controller.manageIndividualWinner();
+		System.out.println("------------------------------------");
+		controller.manageWeatherOnShot();
 	}
 }

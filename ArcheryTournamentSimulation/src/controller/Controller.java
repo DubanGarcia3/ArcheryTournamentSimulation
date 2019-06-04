@@ -9,6 +9,7 @@ import dao.Manager.ManagerShot;
 import model.entities.Gender;
 import model.entities.Match;
 import model.entities.Player;
+import model.entities.Round;
 import model.entities.Team;
 import model.entities.Weather;
 import persistence.FileManager;
@@ -47,9 +48,20 @@ public class Controller {
 	 */
 	public void createMatch() {
 		match = new Match(daoTeams.get(0), daoTeams.get(1), managerShot, weather.getListWeather().get((int) (Math.random() * 500)));
-		match.generateRound();
-		daoTeams.get(0).calculateTotalDistance();
-		daoTeams.get(1).calculateTotalDistance();
+		System.out.println("Valor"+daoTeams.get(2).getId());
+		System.out.println("Valor"+daoTeams.get(19).getId());
+		for (int i = 0; i < 10; i++) {
+			match.generateRound();
+			if (daoTeams.get(0).calculateTotalDistance() > daoTeams.get(1).calculateTotalDistance()) {
+				match.addRound(new Round(daoTeams.get(0).calculateTotalDistance() , daoTeams.get(0).getId()));
+			}else {
+				match.addRound(new Round(daoTeams.get(1).calculateTotalDistance() , daoTeams.get(1).getId()));
+			}
+		}
+		for (int i = 0; i < 10; i++) {
+			System.out.println(match.getListRound().get(i));
+		}
+		
 //		System.out.println("team1 "+ daoTeams.get(0).calculateTotalDistance());
 //		System.out.println("team2 "+ daoTeams.get(1).calculateTotalDistance());
 //		for (int i = 0; i < daoTeams.get(0).getPlayerList().size(); i++) {

@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 public class Team {
 	
+	private static int ID_BASE = 1;
+	private int id;
 	private ArrayList<Player> playerList;
 	
 	public Team() {
+		this.id = ID_BASE++;
 		playerList = new ArrayList<Player>();
 	}
 	
@@ -19,6 +22,14 @@ public class Team {
 			}
 		}
 		return aux;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public ArrayList<Player> getPlayerList() {
@@ -39,6 +50,6 @@ public class Team {
 
 	@Override
 	public String toString() {
-		return "Team [playerList=" + playerList + "]";
+		return "Team = " + id;
 	}
 }

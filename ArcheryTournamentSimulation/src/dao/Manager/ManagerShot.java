@@ -30,7 +30,6 @@ public class ManagerShot {
 	
 	public Shot getRandomShot() {
 		int a =(int) ((Math.random() * 199)+0);
-		System.out.println(a);
 		return listshot.get(a);
 	}
 

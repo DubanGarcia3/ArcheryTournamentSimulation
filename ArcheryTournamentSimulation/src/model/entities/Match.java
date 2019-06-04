@@ -14,11 +14,11 @@ public class Match {
 	private ManagerShot managerShot;
 	
 	public Match(Team teamA, Team teamB, ManagerShot managerShot, Weather weather) {
-		this.managerShot = managerShot;
 		this.team1 = teamA;
 		this.team2 = teamB;	
 		this.weather = weather;
 		this.managerShot = managerShot;
+		this.listRound = new ArrayList<Round>();
 	}
 	
 	public void generateRound() {
@@ -28,13 +28,8 @@ public class Match {
 		}
 	}
 	
-	
-	public void addRound(int valueA, int valueB) {
-		if (team1.calculateTotalDistance()> team2.calculateTotalDistance()) {
-			listRound.add(new Round(team1.calculateTotalDistance(), team1));
-		}else {
-			listRound.add(new Round(team2.calculateTotalDistance(), team2));
-		}
+	public void addRound(Round round) {
+		listRound.add(round);
 	}
 	
 	public Team getTeam1() {
@@ -48,5 +43,29 @@ public class Match {
 	}
 	public void setTeam2(Team team2) {
 		this.team2 = team2;
+	}
+
+	public Weather getWeather() {
+		return weather;
+	}
+
+	public void setWeather(Weather weather) {
+		this.weather = weather;
+	}
+
+	public ArrayList<Round> getListRound() {
+		return listRound;
+	}
+
+	public void setListRound(ArrayList<Round> listRound) {
+		this.listRound = listRound;
+	}
+
+	public ManagerShot getManagerShot() {
+		return managerShot;
+	}
+
+	public void setManagerShot(ManagerShot managerShot) {
+		this.managerShot = managerShot;
 	}
 }

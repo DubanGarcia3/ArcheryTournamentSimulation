@@ -21,6 +21,20 @@ public class Team {
 		return aux;
 	}
 	
+	public Player getIndividualWinner() {
+		Player max = null;
+		double aux =0;
+		for (int i = 0; i < playerList.size(); i++) {
+			if (playerList.get(i)!= null) {
+				if (playerList.get(i).getTotalDistance() > aux) {
+					aux = playerList.get(i).getTotalDistance();
+					max = playerList.get(i);
+				}
+			}
+		}
+		return max ;
+	}
+	
 	public int getId() {
 		return id;
 	}

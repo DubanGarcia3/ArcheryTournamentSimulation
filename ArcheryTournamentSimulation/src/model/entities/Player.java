@@ -98,6 +98,6 @@ public class Player {
 	@Override
 	public String toString() {
 		return "" + name + " gender=" + gender + " age=" + age + " resistence=" + resistence + " aim="
-				+ aim + "  exp=" + exp + " lucky=" + lucky + "]";
+				+ aim + "  exp=" + exp + " lucky=" + lucky ;
 	}
 }

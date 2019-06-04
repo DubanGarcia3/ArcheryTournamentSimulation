@@ -25,6 +25,14 @@ public class Match {
 		this.countTeamB = 0;
 	}
 	
+	public Player calculateindividualWinner() {
+		if (team1.getIndividualWinner().getTotalDistance() >= team2.getIndividualWinner().getTotalDistance() ) {
+			return team1.getIndividualWinner();
+		}else {
+			return team2.getIndividualWinner();
+		}
+	}
+	
 	public void generateRound() {
 		for (int i = 0; i < 20; i++) {
 			team1.getPlayerList().get(i).shoot(managerShot);

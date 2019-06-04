@@ -73,6 +73,15 @@ public class Controller {
 		//			System.out.println("Disparo jugador " + i +"--->\t"+ daoTeams.get(0).getPlayerList().get(i).getListShots().toString());
 		//		}
 	}
+	
+	/**
+	 * metodo que saca el ganador por ronda individual
+	 */
+	public void manageIndividualWinner() {
+		System.out.println(match.calculateindividualWinner() + " distancia: "+
+				match.calculateindividualWinner().getTotalDistance()+" mts");
+	}
+	
 
 	/**
 	 * Este metodo crea los teams, cargando los jugadores para cada uno, con un tamaño de 20 exactos

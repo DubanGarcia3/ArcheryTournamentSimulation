@@ -44,21 +44,22 @@ public class Controller {
 	}
 
 	/**
-	 * Metodo crear 1 partida en construccion! 
+	 * Metodo crear 1 partida en construccion! VERSION 2.0
 	 */
 	public void createMatch() {
 		match = new Match(daoTeams.get(0), daoTeams.get(1), managerShot, weather.getListWeather().get((int) (Math.random() * 500)));
-		System.out.println("Valor"+daoTeams.get(2).getId());
-		System.out.println("Valor"+daoTeams.get(19).getId());
 		for (int i = 0; i < 10; i++) {
 			match.generateRound();
-			if (daoTeams.get(0).calculateTotalDistance() > daoTeams.get(1).calculateTotalDistance()) {
-				match.addRound(new Round(daoTeams.get(0).calculateTotalDistance() , daoTeams.get(0).getId()));
+			double valueA = daoTeams.get(0).calculateTotalDistance();
+			double valueB = daoTeams.get(1).calculateTotalDistance();
+			if ( valueA > valueB ) {
+				match.addRound(daoTeams.get(0).calculateTotalDistance() , daoTeams.get(0).getId());
 			}else {
-				match.addRound(new Round(daoTeams.get(1).calculateTotalDistance() , daoTeams.get(1).getId()));
+				match.addRound(daoTeams.get(1).calculateTotalDistance() , daoTeams.get(1).getId());
 			}
 		}
-		for (int i = 0; i < 10; i++) {
+		
+		for (int i = 0; i < match.getListRound().size(); i++) {
 			System.out.println(match.getListRound().get(i));
 		}
 		

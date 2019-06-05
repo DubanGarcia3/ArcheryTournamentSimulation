@@ -61,7 +61,7 @@ public class Match {
 			team2.getPlayerList().get(i).shoot(managerShot);
 			System.out.println("Disparando jugador: "+ team1.getPlayerList().get(i).getName()+" TEAM A"+"                         "+
 			"Disparando jugador: "+ team2.getPlayerList().get(i).getName()+" TEAM B");
-			Shot.showArchery();
+//			Shot.showArchery();
 		}
 	}
 	
@@ -143,4 +143,8 @@ public class Match {
 		this.managerShot = managerShot;
 	}
 
+	@Override
+	public String toString() {
+		return "Match [team1=" + team1 + ", team2=" + team2 + ", weather=" + weather + "]";
+	}
 }

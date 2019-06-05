@@ -46,25 +46,26 @@ public class Controller {
 	 * Metodo crear 1 partida en construccion! VERSION 2.0
 	 */
 	public void createMatch() {
-		for (int j = 0; j < 1; j++) {
+		for (int j = 0; j < daoTeams.size(); j = j+2) {
 			
-		match = new Match(daoTeams.get(0), daoTeams.get(1), managerShot, weather.getListWeather().get((int) (Math.random() * 500) + 0));
+		match = new Match(daoTeams.get(j), daoTeams.get(j+1), managerShot, weather.getListWeather().get((int) (Math.random() * 500) + 0));
 		System.out.println("Escenario de juego: "+match.getWeather().getName());
 		while (match.getCountTeamA() < 10  &&  match.getCountTeamB() < 10) {
 			match.clearList();
 			match.generateRound();
 			manageRaffleShot();
-			double valueA = daoTeams.get(0).calculateTotalDistance();
-			double valueB = daoTeams.get(1).calculateTotalDistance();
+			double valueA = daoTeams.get(j).calculateTotalDistance();
+			double valueB = daoTeams.get(j+1).calculateTotalDistance();
 //			incrementa la distancia en diparo para el que tenga exp =18
-			daoTeams.get(0).incrementDistance();
-			daoTeams.get(1).incrementDistance();
+			daoTeams.get(j).incrementDistance();
+			daoTeams.get(j+1).incrementDistance();
 			if ( valueA > valueB ) {
-				match.addRound(daoTeams.get(0).calculateTotalDistance() , daoTeams.get(0).getId());
+				match.addRound(daoTeams.get(j).calculateTotalDistance() , daoTeams.get(j).getId());
 			}else {
-				match.addRound(daoTeams.get(1).calculateTotalDistance() , daoTeams.get(1).getId());
+				match.addRound(daoTeams.get(j+1).calculateTotalDistance() , daoTeams.get(j+1).getId());
 			}
 		}
+		daoMatches.addMatch(match);
 //		System.out.println("team1 "+ daoTeams.get(0).calculateTotalDistance());
 		//		System.out.println("team2 "+ daoTeams.get(1).calculateTotalDistance());
 		//		for (int i = 0; i < daoTeams.get(0).getPlayerList().size(); i++) {
@@ -77,6 +78,11 @@ public class Controller {
 		manageIndividualWinner();
 		manageWeatherOnShot();
 		}
+		
+		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
+			System.out.println(daoMatches.getListMatches().get(i));
+		}
+		System.out.println(daoMatches.getListMatches().size());
 	}
 	
 	public void manageRaffleShot() {
@@ -184,9 +190,9 @@ public class Controller {
 		double average = 0;
 		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
 			if (daoMatches.getListMatches().get(i) == null) {
-				average = daoMatches.getListMatches().get(i).getLuckyEarned(daoMatches.getListMatches().get(i).getTeam1()) + 
+				average += daoMatches.getListMatches().get(i).getLuckyEarned(daoMatches.getListMatches().get(i).getTeam1()) + 
 						daoMatches.getListMatches().get(i).getLuckyEarned(daoMatches.getListMatches().get(i).getTeam2());
-				System.out.println("La partida " + (i+1) + "obtuvo en promedio " + average + " puntos de suerte ganados.");
+				System.out.println("La partida " + (i+1) + "obtuvo en promedio " + (average/40) + " puntos de suerte ganados.");
 			}
 		}
 	}
@@ -198,9 +204,9 @@ public class Controller {
 		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
 			if (daoMatches.getListMatches().get(i) != null) {
 				//el += va?
-				average1 = daoMatches.getListMatches().get(i).getExpEarned(daoMatches.getListMatches().get(i).getTeam1()) + 
+				average1 += daoMatches.getListMatches().get(i).getExpEarned(daoMatches.getListMatches().get(i).getTeam1()) + 
 						daoMatches.getListMatches().get(i).getExpEarned(daoMatches.getListMatches().get(i).getTeam2());
-				System.out.println("La partida " + (i+1) + " obtuvo en promedio " + average1 + " experiencia ganada.");
+				System.out.println("La partida " + (i+1) + " obtuvo en promedio " + (average1/40) + " experiencia ganada.");
 			}
 		}
 	}

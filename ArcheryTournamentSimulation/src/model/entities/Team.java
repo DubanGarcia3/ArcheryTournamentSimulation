@@ -86,7 +86,6 @@ public class Team {
 		int count = 0;
 		for (int i = 0; i < playerList.size(); i++) {
 			if (playerList.get(i).getExp() >10) {
-				System.out.println(playerList.get(i).getExp());
 				count ++;
 			}
 			

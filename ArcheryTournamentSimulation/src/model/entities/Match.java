@@ -46,7 +46,6 @@ public class Match {
 		}
 	}
 	
-	
 	public Player calculateindividualWinner() {
 		if (team1.getIndividualWinner().getTotalDistance() >= team2.getIndividualWinner().getTotalDistance() ) {
 			return team1.getIndividualWinner();

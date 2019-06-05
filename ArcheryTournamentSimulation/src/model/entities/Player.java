@@ -26,6 +26,10 @@ public class Player {
 		listShots = new ArrayList<Shot>();
 	}
 	
+	public void addShot(ManagerShot managerShot) {
+		listShots.add(managerShot.getRandomShot());
+	}
+	
 	public double getTotalDistance() {
 		double aux = 0;
 		for (int i = 0; i < listShots.size(); i++) {

@@ -2,6 +2,8 @@ package model.entities;
 
 import java.util.ArrayList;
 
+import dao.Manager.ManagerShot;
+
 public class Team {
 	
 	private static int ID_BASE = 1;
@@ -11,6 +13,21 @@ public class Team {
 	public Team() {
 		playerList = new ArrayList<Player>();
 		this.id = ID_BASE++;
+	}
+	
+	public Player getPleyerLuckier(ManagerShot managerShot) {
+		Player max = null;
+		double aux =0;
+		for (int i = 0; i < playerList.size(); i++) {
+			if (playerList.get(i)!= null) {
+				if (playerList.get(i).getLucky() > aux) {
+					aux = playerList.get(i).getLucky();
+					max = playerList.get(i);
+					playerList.get(i).addShot(managerShot);
+				}
+			}
+		}
+		return max;
 	}
 	
 	public double calculateTotalDistance() {

@@ -24,21 +24,11 @@ public class Match {
 		this.countTeamA = 0;
 		this.countTeamB = 0;
 	}
-	
-//	public void calculateShootOnWeather() {
-//		for (int i = 0; i < 20; i++) {
-//			if (weather.getName().equalsIgnoreCase("Soleado")) {
-//				//no pasa nada :) 
-//			}else if (weather.getName().equalsIgnoreCase("Lluvioso")) {
-//				team1.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
-//				team2.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
-//				
-//			}else if (weather.getName().equalsIgnoreCase("Viento")) {
-//				team1.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
-//				team2.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
-//			}
-//		}
-//	}
+
+	public void getPlayerLuckier() {
+		team1.getPleyerLuckier(managerShot);
+		team1.getPleyerLuckier(managerShot);
+	}
 	
 	public void calculateShootOnWeather() {
 		for (int i = 0; i < 20; i++) {
@@ -64,8 +54,9 @@ public class Match {
 		for (int i = 0; i < 20; i++) {
 			team1.getPlayerList().get(i).shoot(managerShot);
 			team2.getPlayerList().get(i).shoot(managerShot);
-//			System.out.println("Disparando jugador: "+ (i+1)+" TEAM A"+"                         "+"Disparando jugador: "+ (i+1)+" TEAM B");
-//			Shot.showArchery();
+			System.out.println("Disparando jugador: "+ team1.getPlayerList().get(i).getName()+" TEAM A"+"                         "+
+			"Disparando jugador: "+ team2.getPlayerList().get(i).getName()+" TEAM B");
+			Shot.showArchery();
 		}
 	}
 	

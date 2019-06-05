@@ -46,7 +46,7 @@ public class Controller {
 	 * Metodo crear 1 partida en construccion! VERSION 2.0
 	 */
 	public void createMatch() {
-		for (int j = 0; j < 0; j++) {
+		for (int j = 0; j < 1; j++) {
 			
 		match = new Match(daoTeams.get(0), daoTeams.get(1), managerShot, weather.getListWeather().get((int) (Math.random() * 500) + 0));
 		System.out.println("Escenario de juego: "+match.getWeather().getName());
@@ -64,6 +64,8 @@ public class Controller {
 				match.addRound(daoTeams.get(1).calculateTotalDistance() , daoTeams.get(1).getId());
 			}
 		}
+		
+		
 
 //		System.out.println("team1 "+ daoTeams.get(0).calculateTotalDistance());
 		//		System.out.println("team2 "+ daoTeams.get(1).calculateTotalDistance());
@@ -77,6 +79,10 @@ public class Controller {
 		manageIndividualWinner();
 		manageWeatherOnShot();
 		}
+	}
+	
+	public void manageRaffleShot() {
+		match.getPlayerLuckier();
 	}
 	
 	/**

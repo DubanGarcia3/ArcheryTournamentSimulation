@@ -46,7 +46,7 @@ public class Controller {
 	 * Metodo crear 1 partida en construccion! VERSION 2.0
 	 */
 	public void createMatch() {
-		for (int j = 0; j < daoTeams.size(); j = j+2) {
+		for (int j = 0; j < 5; j = j+2) {
 			
 		match = new Match(daoTeams.get(j), daoTeams.get(j+1), managerShot, weather.getListWeather().get((int) (Math.random() * 500) + 0));
 		System.out.println("Escenario de juego: "+match.getWeather().getName());
@@ -74,15 +74,16 @@ public class Controller {
 		System.out.println("Cantidad de rondas ganadas por grupo: "+"TEAM A "+match.getCountTeamA()+"    "+"TEAM B "+match.getCountTeamB());
 		for (int i = 0; i < match.getListRound().size(); i++) {
 			System.out.println(match.getListRound().get(i));
+			manageIndividualWinner();
 		}
 		manageIndividualWinner();
 		manageWeatherOnShot();
 		}
 		
-		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
-			System.out.println(daoMatches.getListMatches().get(i));
-		}
-		System.out.println(daoMatches.getListMatches().size());
+//		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
+//			System.out.println(daoMatches.getListMatches().get(i));
+//		}
+//		System.out.println(daoMatches.getListMatches().size());
 	}
 	
 	public void manageRaffleShot() {

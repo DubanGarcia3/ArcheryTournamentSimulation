@@ -82,6 +82,16 @@ public class Team {
 		playerList.removeAll(playerList);
 	}
 
+	
+
+	public double getTotalExp() {
+		double exp = 0;
+		for (int i = 0; i < playerList.size(); i++) {
+			exp += playerList.get(i).getExp();
+		}
+		return exp;
+	}
+	
 	@Override
 	public String toString() {
 		return "Team = " + id;

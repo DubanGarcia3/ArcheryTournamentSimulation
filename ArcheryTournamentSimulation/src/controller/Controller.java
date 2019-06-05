@@ -65,9 +65,6 @@ public class Controller {
 				match.addRound(daoTeams.get(1).calculateTotalDistance() , daoTeams.get(1).getId());
 			}
 		}
-		
-		
-
 //		System.out.println("team1 "+ daoTeams.get(0).calculateTotalDistance());
 		//		System.out.println("team2 "+ daoTeams.get(1).calculateTotalDistance());
 		//		for (int i = 0; i < daoTeams.get(0).getPlayerList().size(); i++) {
@@ -172,6 +169,29 @@ public class Controller {
 			System.out.println(e);
 		}
 	}
+	
+	/**
+	 * el metodo donde se llama a todos los reportes
+	 * @return
+	 */
+	public void managerReports(){
+		this.averageExp();
+	}
+	
+	public double averageExp() {
+		double average1 = 0;
+		double average2 = 0;
+		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
+			if (daoMatches.getListMatches().get(i) != null) {
+				average1 +=  daoMatches.getListMatches().get(i).getTeam1().getTotalExp();
+				average2 += daoMatches.getListMatches().get(i).getTeam2().getTotalExp();
+			}
+		}
+		return (average1 + average2) / listData.size();
+	}
+	
+	
+	
 
 	public FileManager getFileManager() {
 		return fileManager;

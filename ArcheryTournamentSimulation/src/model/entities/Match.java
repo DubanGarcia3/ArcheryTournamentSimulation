@@ -64,14 +64,12 @@ public class Match {
 		}
 	}
 	
-	
 	public void clearList() {
 		for (int i = 0; i < 20; i++) {
 			team1.getPlayerList().get(i).getListShots().clear();
 			team2.getPlayerList().get(i).getListShots().clear();
 		}
 	}
-	
 	
 	public void addRound(double d, int winnerTeam) {
 		if(winnerTeam == team1.getId()) {

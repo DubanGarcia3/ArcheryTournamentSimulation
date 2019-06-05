@@ -81,6 +81,29 @@ public class Team {
 	public void removeAll() {
 		playerList.removeAll(playerList);
 	}
+
+	public int getOnlyExp() {
+		int count = 0;
+		for (int i = 0; i < playerList.size(); i++) {
+			if (playerList.get(i).getExp() >10) {
+				System.out.println(playerList.get(i).getExp());
+				count ++;
+			}
+			
+		}
+		return count;
+	}
+	
+	public int getOnlyLucky() {
+		int count = 0;
+		for (int i = 0; i < playerList.size(); i++) {
+			if (playerList.get(i).getLucky() > 10) {
+				count ++;
+			}
+			
+		}
+		return count;
+	}
 	
 	public double getExpEarned() {
 		double exp = 0;

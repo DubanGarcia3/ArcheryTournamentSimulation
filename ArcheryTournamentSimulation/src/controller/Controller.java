@@ -190,7 +190,7 @@ public class Controller {
 		double average = 0;
 		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
 			if (daoMatches.getListMatches().get(i) == null) {
-				average += daoMatches.getListMatches().get(i).getLuckyEarned(daoMatches.getListMatches().get(i).getTeam1()) + 
+				average = daoMatches.getListMatches().get(i).getLuckyEarned(daoMatches.getListMatches().get(i).getTeam1()) + 
 						daoMatches.getListMatches().get(i).getLuckyEarned(daoMatches.getListMatches().get(i).getTeam2());
 				System.out.println("La partida " + (i+1) + "obtuvo en promedio " + (average/40) + " puntos de suerte ganados.");
 			}
@@ -204,9 +204,12 @@ public class Controller {
 		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
 			if (daoMatches.getListMatches().get(i) != null) {
 				//el += va?
-				average1 += daoMatches.getListMatches().get(i).getExpEarned(daoMatches.getListMatches().get(i).getTeam1()) + 
+				average1 = daoMatches.getListMatches().get(i).getExpEarned(daoMatches.getListMatches().get(i).getTeam1()) + 
 						daoMatches.getListMatches().get(i).getExpEarned(daoMatches.getListMatches().get(i).getTeam2());
-				System.out.println("La partida " + (i+1) + " obtuvo en promedio " + (average1/40) + " experiencia ganada.");
+				System.out.println("La partida " + (i+1) + " obtuvo en promedio " + 
+						(average1/(daoMatches.getListMatches().get(i).getTeam1().getOnlyExp() +
+								daoMatches.getListMatches().get(i).getTeam2().getOnlyExp())
+						) + " experiencia ganada.");
 			}
 		}
 	}

@@ -64,8 +64,8 @@ public class Match {
 		for (int i = 0; i < 20; i++) {
 			team1.getPlayerList().get(i).shoot(managerShot);
 			team2.getPlayerList().get(i).shoot(managerShot);
-			System.out.println("Disparando jugador: "+ (i+1)+" TEAM A"+"                         "+"Disparando jugador: "+ (i+1)+" TEAM B");
-			Shot.showArchery();
+//			System.out.println("Disparando jugador: "+ (i+1)+" TEAM A"+"                         "+"Disparando jugador: "+ (i+1)+" TEAM B");
+//			Shot.showArchery();
 		}
 	}
 	

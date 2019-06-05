@@ -25,15 +25,26 @@ public class Match {
 		this.countTeamB = 0;
 	}
 	
+//	public void calculateShootOnWeather() {
+//		for (int i = 0; i < 20; i++) {
+//			if (weather.getName().equalsIgnoreCase("Soleado")) {
+//				//no pasa nada :) 
+//			}else if (weather.getName().equalsIgnoreCase("Lluvioso")) {
+//				team1.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
+//				team2.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
+//				
+//			}else if (weather.getName().equalsIgnoreCase("Viento")) {
+//				team1.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
+//				team2.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
+//			}
+//		}
+//	}
+	
 	public void calculateShootOnWeather() {
 		for (int i = 0; i < 20; i++) {
 			if (weather.getName().equalsIgnoreCase("Soleado")) {
 				//no pasa nada :) 
-			}else if (weather.getName().equalsIgnoreCase("Lluvioso")) {
-				team1.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
-				team2.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
-				
-			}else if (weather.getName().equalsIgnoreCase("Viento")) {
+			}else {
 				team1.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
 				team2.getPlayerList().get(i).calculateShootsOnWeather(weather.getName());
 			}

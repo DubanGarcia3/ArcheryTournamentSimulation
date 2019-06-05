@@ -48,15 +48,16 @@ public class Controller {
 	 */
 	public void createMatch() {
 		match = new Match(daoTeams.get(0), daoTeams.get(1), managerShot, weather.getListWeather().get((int) (Math.random() * 500) + 0));
+		System.out.println(match.getWeather().getName());
 		while (match.getCountTeamA() < 10  &&  match.getCountTeamB() < 10) {
 			match.clearList();
 			match.generateRound();
 			double valueA = daoTeams.get(0).calculateTotalDistance();
 			double valueB = daoTeams.get(1).calculateTotalDistance();
 			//incrementa la distancia en diparo para el que tenga exp =18
-			daoTeams.get(0).incrementDistance();
-			daoTeams.get(1).incrementDistance();
-			
+//			daoTeams.get(0).incrementDistance();
+//			daoTeams.get(1).incrementDistance();
+//			
 			if ( valueA > valueB ) {
 				match.addRound(daoTeams.get(0).calculateTotalDistance() , daoTeams.get(0).getId());
 			}else {
@@ -78,6 +79,11 @@ public class Controller {
 		//		}
 	}
 	
+	public void manageWeatherForShots() {
+		
+	}
+	
+	
 	/**
 	 * metodo que maneja las variables exogenas (clima )
 	 */
@@ -87,7 +93,7 @@ public class Controller {
 		}
 		match.calculateShootOnWeather();
 		System.out.println(match.getWeather().getName());
-		System.out.println("modioficada por anomalia en el clima");
+		System.out.println("Disparos alterados por anomalia en el clima");
 		for (int i = 0; i < match.getTeam1().getPlayerList().size(); i++) {
 			System.out.println(match.getTeam1().getPlayerList().get(i).getListShots());
 		}

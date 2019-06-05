@@ -35,11 +35,13 @@ public class Shot {
 	}
 	
 	public void incrementDistance(double increment) {
-		this.distance += (this.distance*increment); 
+		double aux = this.distance * increment;
+		this.distance = this.distance + aux; 
 	}
 	
 	public void decrementDistance(double decrement) {
-		this.distance -= (this.distance * decrement);
+		double aux = this.distance*decrement;
+		this.distance = this.distance-aux;
 	}
 	
 	@Override

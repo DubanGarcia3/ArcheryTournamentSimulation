@@ -176,21 +176,34 @@ public class Controller {
 	 */
 	public void managerReports(){
 		this.averageExp();
+		this.averageLuckyEarned();
 	}
 	
-	public double averageExp() {
-		double average1 = 0;
-		double average2 = 0;
+	//no se si está bien *2
+	public void averageLuckyEarned() {
+		double average = 0;
 		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
-			if (daoMatches.getListMatches().get(i) != null) {
-				average1 +=  daoMatches.getListMatches().get(i).getTeam1().getTotalExp();
-				average2 += daoMatches.getListMatches().get(i).getTeam2().getTotalExp();
+			if (daoMatches.getListMatches().get(i) == null) {
+				average = daoMatches.getListMatches().get(i).getLuckyEarned(daoMatches.getListMatches().get(i).getTeam1()) + 
+						daoMatches.getListMatches().get(i).getLuckyEarned(daoMatches.getListMatches().get(i).getTeam2());
+				System.out.println("La partida " + (i+1) + "obtuvo en promedio " + average + " puntos de suerte ganados.");
 			}
 		}
-		return (average1 + average2) / listData.size();
 	}
 	
 	
+	//no se ha probado 
+	public void  averageExp() {
+		double average1 = 0;
+		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
+			if (daoMatches.getListMatches().get(i) != null) {
+				//el += va?
+				average1 = daoMatches.getListMatches().get(i).getExpEarned(daoMatches.getListMatches().get(i).getTeam1()) + 
+						daoMatches.getListMatches().get(i).getExpEarned(daoMatches.getListMatches().get(i).getTeam2());
+				System.out.println("La partida " + (i+1) + " obtuvo en promedio " + average1 + " experiencia ganada.");
+			}
+		}
+	}
 	
 
 	public FileManager getFileManager() {

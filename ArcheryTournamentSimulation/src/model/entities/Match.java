@@ -34,6 +34,7 @@ public class Match {
 				);
 	}
 	
+
 	public void calculateShootOnWeather() {
 		for (int i = 0; i < 20; i++) {
 			if (weather.getName().equalsIgnoreCase("Soleado")) {
@@ -79,6 +80,15 @@ public class Match {
 		}
 		listRound.add(new Round(d, winnerTeam));
 	}
+	
+	public double getExpEarned(Team team) {
+		return team.getExpEarned();
+	}
+	
+	public double getLuckyEarned(Team team) {
+		return team.getLuckyEarned();
+	}
+	
 	
 	public int getCountTeamA() {
 		return countTeamA;
@@ -132,4 +142,5 @@ public class Match {
 	public void setManagerShot(ManagerShot managerShot) {
 		this.managerShot = managerShot;
 	}
+
 }

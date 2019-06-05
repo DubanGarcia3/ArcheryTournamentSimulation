@@ -81,19 +81,26 @@ public class Team {
 	public void removeAll() {
 		playerList.removeAll(playerList);
 	}
-
 	
-
-	public double getTotalExp() {
+	public double getExpEarned() {
 		double exp = 0;
 		for (int i = 0; i < playerList.size(); i++) {
-			exp += playerList.get(i).getExp();
+			exp += playerList.get(i).getExp() -10;
 		}
 		return exp;
 	}
 	
+	public double getLuckyEarned() {
+		double lucky = 0;
+		for (int i = 0; i < playerList.size(); i++) {
+			lucky += playerList.get(i).getExp() -10;
+		}
+		return lucky;
+	}
+
 	@Override
 	public String toString() {
 		return "Team = " + id;
 	}
+
 }

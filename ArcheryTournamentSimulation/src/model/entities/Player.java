@@ -29,7 +29,7 @@ public class Player {
 	public double getTotalDistance() {
 		double aux = 0;
 		for (int i = 0; i < listShots.size(); i++) {
-			aux += listShots.get(i).calcualteDistance();
+			aux += listShots.get(i).calculateDistance();
 		}
 		return aux;
 	}
@@ -51,11 +51,11 @@ public class Player {
 	}
 
 	public void calculateShootsOnWeather(String weather) {
-		if (weather.equalsIgnoreCase("Lluvioso")) {
+		if (weather.equals("Lluvioso")) {
 			for (int i = 0; i < listShots.size(); i++) {
 				listShots.get(i).decrementDistance(0.08);
 			}
-		}else if (weather.equalsIgnoreCase("Viento")) {
+		}else if (weather.equals("Viento")) {
 			for (int i = 0; i < listShots.size(); i++) {
 				listShots.get(i).decrementDistance(0.04);
 			}

@@ -61,8 +61,10 @@ public class Controller {
 			daoTeams.get(j+1).incrementDistance();
 			if ( valueA > valueB ) {
 				match.addRound(daoTeams.get(j).calculateTotalDistance() , daoTeams.get(j).getId());
+				manageIndividualWinner();
 			}else {
 				match.addRound(daoTeams.get(j+1).calculateTotalDistance() , daoTeams.get(j+1).getId());
+				manageIndividualWinner();
 			}
 		}
 		daoMatches.addMatch(match);
@@ -74,9 +76,8 @@ public class Controller {
 		System.out.println("Cantidad de rondas ganadas por grupo: "+"TEAM A "+match.getCountTeamA()+"    "+"TEAM B "+match.getCountTeamB());
 		for (int i = 0; i < match.getListRound().size(); i++) {
 			System.out.println(match.getListRound().get(i));
-			manageIndividualWinner();
 		}
-		manageIndividualWinner();
+//		manageIndividualWinner();
 		manageWeatherOnShot();
 		}
 		
@@ -94,15 +95,15 @@ public class Controller {
 	 * metodo que maneja las variables exogenas (clima )
 	 */
 	public void manageWeatherOnShot() {
-		for (int i = 0; i < match.getTeam1().getPlayerList().size(); i++) {
-			System.out.println(match.getTeam1().getPlayerList().get(i).getListShots());
-		}
-		match.calculateShootOnWeather();
-		System.out.println(match.getWeather().getName());
-		System.out.println("Disparos alterados por anomalia en el clima");
-		for (int i = 0; i < match.getTeam1().getPlayerList().size(); i++) {
-			System.out.println(match.getTeam1().getPlayerList().get(i).getListShots());
-		}
+//		for (int i = 0; i < match.getTeam1().getPlayerList().size(); i++) {
+//			System.out.println(match.getTeam1().getPlayerList().get(i).getListShots());
+//		}
+//		match.calculateShootOnWeather();
+//		System.out.println(match.getWeather().getName());
+//		System.out.println("Disparos alterados por anomalia en el clima");
+//		for (int i = 0; i < match.getTeam1().getPlayerList().size(); i++) {
+//			System.out.println(match.getTeam1().getPlayerList().get(i).getListShots());
+//		}
 	}
 	
 	

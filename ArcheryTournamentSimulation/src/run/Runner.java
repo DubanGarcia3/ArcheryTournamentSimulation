@@ -8,7 +8,7 @@ public class Runner {
 		Controller controller = Controller.getInstance();
 		controller.loadData();
 		controller.createMatch();
-		controller.manageRaffleShot();
+//		controller.manageRaffleShot();
 //		controller.manageIndividualWinner();
 //		System.out.println("------------------------------------");
 //		controller.manageWeatherOnShot();

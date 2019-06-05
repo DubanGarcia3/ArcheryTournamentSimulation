@@ -53,6 +53,7 @@ public class Controller {
 		while (match.getCountTeamA() < 10  &&  match.getCountTeamB() < 10) {
 			match.clearList();
 			match.generateRound();
+			manageRaffleShot();
 			double valueA = daoTeams.get(0).calculateTotalDistance();
 			double valueB = daoTeams.get(1).calculateTotalDistance();
 //			incrementa la distancia en diparo para el que tenga exp =18

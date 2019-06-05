@@ -26,8 +26,10 @@ public class Match {
 	}
 
 	public void getPlayerLuckier() {
-		team1.getPleyerLuckier(managerShot);
-		team1.getPleyerLuckier(managerShot);
+		System.out.println("tiro suerte para los jugadores " + 
+				team1.getPleyerLuckier(managerShot).getName()+ " y " +
+				team1.getPleyerLuckier(managerShot).getName()
+				);
 	}
 	
 	public void calculateShootOnWeather() {

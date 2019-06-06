@@ -14,6 +14,7 @@ public class Match {
 	private ManagerShot managerShot;
 	private int countTeamA;
 	private int countTeamB;
+	private Team winner;
 	
 	public Match(Team teamA, Team teamB, ManagerShot managerShot, Weather weather) {
 		this.team1 = teamA;
@@ -23,6 +24,7 @@ public class Match {
 		this.listRound = new ArrayList<Round>();
 		this.countTeamA = 0;
 		this.countTeamB = 0;
+		this.winner = null;
 	}
 
 	public void getPlayerLuckier() {
@@ -34,6 +36,17 @@ public class Match {
 				);
 	}
 	
+	public Team getWinner() {
+		return winner;
+	}
+
+	public void setWinner() {
+		if (countTeamA > countTeamB) {
+			this.winner = team1;
+		}else {
+			this.winner = team2;
+		}
+	}
 
 	public void calculateShootOnWeather() {
 		for (int i = 0; i < 20; i++) {

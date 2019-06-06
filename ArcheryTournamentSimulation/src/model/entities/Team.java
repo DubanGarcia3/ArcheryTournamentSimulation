@@ -15,6 +15,27 @@ public class Team {
 		this.id = ID_BASE++;
 	}
 	
+	
+	public int getCountM() {
+		int count = 0;
+		for (int i = 0; i < playerList.size(); i++) {
+			if(playerList.get(i).getGender().equals(Gender.MALE)) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
+	public int getCountF() {
+		int count = 0;
+		for (int i = 0; i < playerList.size(); i++) {
+			if(playerList.get(i).getGender().equals(Gender.FEMALE)) {
+				count++;
+			}
+		}
+		return count;
+	}
+	
 	public Player getPleyerLuckier(ManagerShot managerShot) {
 		Player max = null;
 		double aux =0;

@@ -46,7 +46,7 @@ public class Controller {
 	 * Metodo crear 1 partida en construccion! VERSION 2.0
 	 */
 	public void createMatch() {
-		for (int j = 0; j < 5; j = j+2) {
+		for (int j = 0; j < 10; j = j+2) {
 			
 		match = new Match(daoTeams.get(j), daoTeams.get(j+1), managerShot, weather.getListWeather().get((int) (Math.random() * 500) + 0));
 		System.out.println("Escenario de juego: "+match.getWeather().getName());
@@ -67,6 +67,7 @@ public class Controller {
 				manageIndividualWinner();
 			}
 		}
+		match.setWinner();
 		daoMatches.addMatch(match);
 //		System.out.println("team1 "+ daoTeams.get(0).calculateTotalDistance());
 		//		System.out.println("team2 "+ daoTeams.get(1).calculateTotalDistance());
@@ -77,7 +78,7 @@ public class Controller {
 		for (int i = 0; i < match.getListRound().size(); i++) {
 			System.out.println(match.getListRound().get(i));
 		}
-//		manageIndividualWinner();
+		System.out.println("Ganador de la partida"+match.getWinner());
 		manageWeatherOnShot();
 		}
 		
@@ -186,6 +187,7 @@ public class Controller {
 		this.averageExp();
 		this.averageLuckyEarned();
 		this.showLuckiestplayer();
+		this.genreVictoryTotal();
 	}
 	
 	//no se si está bien *2
@@ -254,6 +256,23 @@ public class Controller {
 		}
 	}
 	
+	public void genreVictoryTotal() {
+		int countM = 0;
+		int countF = 0;
+		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
+			for (int j = 0; j < daoTeams.size(); j++) {
+				if(daoMatches.getListMatches().get(i).getWinner().equals(daoTeams.get(j))) {
+					if(daoTeams.get(j).getCountM() > daoTeams.get(j).getCountF()) {
+						countM++;
+					}else {
+						countF++;
+					}
+				}
+			}
+		}
+		System.out.println("Victorias de hombres: "+countM+ " Victorias de mujeres: "+ countF);
+	}
+
 	
 
 	public FileManager getFileManager() {

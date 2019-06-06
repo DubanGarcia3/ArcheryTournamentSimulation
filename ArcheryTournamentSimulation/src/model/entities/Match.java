@@ -26,20 +26,24 @@ public class Match {
 		this.countTeamB = 0;
 		this.winner = null;
 	}
-
+/**
+ * Obtiene el jugador con mas suerte de cada equipo.
+ */
 	public void getPlayerLuckier() {
-		team1.getPleyerLuckier(managerShot).addShot(managerShot);
-		team2.getPleyerLuckier(managerShot).addShot(managerShot);
+		team1.getPlayerLuckier(managerShot).addShot(managerShot);
+		team2.getPlayerLuckier(managerShot).addShot(managerShot);
 		System.out.println("tiro suerte para los jugadores " + 
-				team1.getPleyerLuckier(managerShot).getName()+ " y " +
-				team2.getPleyerLuckier(managerShot).getName()
+				team1.getPlayerLuckier(managerShot).getName()+ " y " +
+				team2.getPlayerLuckier(managerShot).getName()
 				);
 	}
 	
 	public Team getWinner() {
 		return winner;
 	}
-
+/**
+ * Indentifica el ganador de la partida
+ */
 	public void setWinner() {
 		if (countTeamA > countTeamB) {
 			this.winner = team1;
@@ -47,7 +51,9 @@ public class Match {
 			this.winner = team2;
 		}
 	}
-
+/**
+ * Calcula los disparos cuando se afectan por el clima
+ */
 	public void calculateShootOnWeather() {
 		for (int i = 0; i < 20; i++) {
 			if (weather.getName().equalsIgnoreCase("Soleado")) {
@@ -58,7 +64,10 @@ public class Match {
 			}
 		}
 	}
-	
+/**
+ * Sirve para calcular quien gano la ronda individual	
+ * @return
+ */
 	public Player calculateindividualWinner() {
 		if (team1.getIndividualWinner().getTotalDistance() >= team2.getIndividualWinner().getTotalDistance() ) {
 			return team1.getIndividualWinner();
@@ -66,7 +75,9 @@ public class Match {
 			return team2.getIndividualWinner();
 		}
 	}
-	
+/**
+ * Genera un ronda
+ */
 	public void generateRound() {
 		for (int i = 0; i < 20; i++) {
 			team1.getPlayerList().get(i).shoot(managerShot);
@@ -76,14 +87,20 @@ public class Match {
 //			Shot.showArchery();
 		}
 	}
-	
+/**
+ * Vacia la lista de disparos de cada jugador para un nueva ronda	
+ */
 	public void clearList() {
 		for (int i = 0; i < 20; i++) {
 			team1.getPlayerList().get(i).getListShots().clear();
 			team2.getPlayerList().get(i).getListShots().clear();
 		}
 	}
-	
+/**
+ * Este metodo agrega una ronda a la lista de rondas, contando el ganador de la ronda
+ * @param d puntos
+ * @param winnerTeam Id del team ganador
+ */
 	public void addRound(double d, int winnerTeam) {
 		if(winnerTeam == team1.getId()) {
 			countTeamA++;

@@ -43,10 +43,10 @@ public class Controller {
 	}
 
 	/**
-	 * Metodo crear 1 partida en construccion! VERSION 2.0
+	 * Metodo crear las partidas 500!  
 	 */
 	public void createMatch() {
-		for (int j = 0; j < 10; j = j+2) {
+		for (int j = 0; j < 1000; j = j+2) {
 			
 		match = new Match(daoTeams.get(j), daoTeams.get(j+1), managerShot, weather.getListWeather().get((int) (Math.random() * 500) + 0));
 		System.out.println("Escenario de juego: "+match.getWeather().getName());
@@ -189,8 +189,9 @@ public class Controller {
 		this.showLuckiestplayer();
 		this.genreVictoryTotal();
 	}
-	
-	//no se si está bien *2
+	/**
+	 * Promedio de suerte por partida 
+	 */
 	public void averageLuckyEarned() {
 		double average = 0;
 		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
@@ -201,9 +202,9 @@ public class Controller {
 			}
 		}
 	}
-	
-	
-	//no se ha probado 
+	/**
+	 * Promedio de experiencia por partida
+	 */
 	public void  averageExp() {
 		double average1 = 0;
 		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
@@ -219,43 +220,47 @@ public class Controller {
 		}
 	}
 	
-	//Jugador con más suerte en cada uno de los escenarios de juego
+	/**
+	 * Jugador con más suerte en cada uno de los escenarios de juego
+	 */
 	public void showLuckiestplayer() {
 		Player playerAux = null;
 		for (int i = 0; i < daoMatches.getListMatches().size(); i++) {
 			if (daoMatches.getListMatches().get(i).getWeather().getName() == "Lluvioso") {
-				if (daoMatches.getListMatches().get(i).getTeam1().getPleyerLuckier(managerShot).getLucky() >=
-						daoMatches.getListMatches().get(i).getTeam1().getPleyerLuckier(managerShot).getLucky()) {
+				if (daoMatches.getListMatches().get(i).getTeam1().getPlayerLuckier(managerShot).getLucky() >=
+						daoMatches.getListMatches().get(i).getTeam1().getPlayerLuckier(managerShot).getLucky()) {
 					System.out.println("Jugador con mas suerte en escenario Lluvioso " + 
-							daoMatches.getListMatches().get(i).getTeam1().getPleyerLuckier(managerShot).getName());
+							daoMatches.getListMatches().get(i).getTeam1().getPlayerLuckier(managerShot).getName());
 				}else {
 					System.out.println("Jugador con mas suerte en escenario Lluvioso " + 
-							daoMatches.getListMatches().get(i).getTeam2().getPleyerLuckier(managerShot).getName());
+							daoMatches.getListMatches().get(i).getTeam2().getPlayerLuckier(managerShot).getName());
 				}
-				playerAux = daoMatches.getListMatches().get(i).getTeam2().getPleyerLuckier(managerShot);
+				playerAux = daoMatches.getListMatches().get(i).getTeam2().getPlayerLuckier(managerShot);
 
 			}else if (daoMatches.getListMatches().get(i).getWeather().getName() == "Soleado") {
-				if (daoMatches.getListMatches().get(i).getTeam1().getPleyerLuckier(managerShot).getLucky() >=
-						daoMatches.getListMatches().get(i).getTeam1().getPleyerLuckier(managerShot).getLucky()) {
+				if (daoMatches.getListMatches().get(i).getTeam1().getPlayerLuckier(managerShot).getLucky() >=
+						daoMatches.getListMatches().get(i).getTeam1().getPlayerLuckier(managerShot).getLucky()) {
 					System.out.println("Jugador con mas suerte en escenario Soleado " + 
-							daoMatches.getListMatches().get(i).getTeam1().getPleyerLuckier(managerShot).getName());
+							daoMatches.getListMatches().get(i).getTeam1().getPlayerLuckier(managerShot).getName());
 				}else {
 					System.out.println("Jugador con mas suerte en escenario Soleado " + 
-							daoMatches.getListMatches().get(i).getTeam2().getPleyerLuckier(managerShot).getName());
+							daoMatches.getListMatches().get(i).getTeam2().getPlayerLuckier(managerShot).getName());
 				}
 			}else if (daoMatches.getListMatches().get(i).getWeather().getName() == "Viento") {
-				if (daoMatches.getListMatches().get(i).getTeam1().getPleyerLuckier(managerShot).getLucky() >=
-						daoMatches.getListMatches().get(i).getTeam1().getPleyerLuckier(managerShot).getLucky()) {
+				if (daoMatches.getListMatches().get(i).getTeam1().getPlayerLuckier(managerShot).getLucky() >=
+						daoMatches.getListMatches().get(i).getTeam1().getPlayerLuckier(managerShot).getLucky()) {
 					System.out.println("Jugador con mas suerte en escenario viento " + 
-							daoMatches.getListMatches().get(i).getTeam1().getPleyerLuckier(managerShot).getName());
+							daoMatches.getListMatches().get(i).getTeam1().getPlayerLuckier(managerShot).getName());
 				}else {
 					System.out.println("Jugador con mas suerte en escenario Soleado " + 
-							daoMatches.getListMatches().get(i).getTeam2().getPleyerLuckier(managerShot).getName());
+							daoMatches.getListMatches().get(i).getTeam2().getPlayerLuckier(managerShot).getName());
 				}
 			}
 		}
 	}
-	
+/**
+ * Arroja el genero con mas victorias totales	
+ */
 	public void genreVictoryTotal() {
 		int countM = 0;
 		int countF = 0;
@@ -272,8 +277,6 @@ public class Controller {
 		}
 		System.out.println("Victorias de hombres: "+countM+ " Victorias de mujeres: "+ countF);
 	}
-
-	
 
 	public FileManager getFileManager() {
 		return fileManager;

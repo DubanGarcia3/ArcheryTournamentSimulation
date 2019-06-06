@@ -27,18 +27,27 @@ public class Shot {
 	public void setAngle(double angle) {
 		this.angle = angle;
 	}
-	
+/**
+ * Calcula la distancia a partir del angulo y la velocidad	
+ * @return
+ */
 	public double calculateDistance() {
 		double b = Math.toRadians(angle);
 		this.distance = (Math.pow(velocity, 2)*Math.pow(Math.sin(b), 2))/(2*9.81);
 		return distance;
 	}
-	
+/**
+ * Incrementa la distancia para los jugadores 	
+ * @param increment
+ */
 	public void incrementDistance(double increment) {
 		double aux = this.distance * increment;
 		this.distance = this.distance + aux; 
 	}
-	
+/**
+ * Decrece la distancia para los factores lluvia y viento	
+ * @param decrement
+ */
 	public void decrementDistance(double decrement) {
 		double aux = this.distance*decrement;
 		this.distance = this.distance - aux;
@@ -56,7 +65,9 @@ public class Shot {
 	public String toString() {
 		return "velocity= " + velocity + ", angle=" + angle +" Distance: "+ distance;
 	}
-
+/**
+ * Animacion de disparo
+ */
 	public static void showArchery() {
 		System.out.println("  O                           / |"+"                                    "+"  O                           / |");
 		delay();
@@ -69,7 +80,9 @@ public class Shot {
 		System.out.println("/_|_____________________________|"+"                                    "+"/_|_____________________________|");
 		delay();
 	}
-	
+/**
+ * Hilo para la animacion	
+ */
 	public static void delay() {
 		try {
 			Thread.sleep(10);

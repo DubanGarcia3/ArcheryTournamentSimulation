@@ -29,7 +29,10 @@ public class Player {
 	public void addShot(ManagerShot managerShot) {
 		listShots.add(managerShot.getRandomShot());
 	}
-	
+/**
+ * Genera la distancia total de los disparos de 1 SOLO jugador
+ * @return
+ */
 	public double getTotalDistance() {
 		double aux = 0;
 		for (int i = 0; i < listShots.size(); i++) {
@@ -37,7 +40,10 @@ public class Player {
 		}
 		return aux;
 	}
-	
+/**
+ * Genera disparos hasta que la resistencia del jugador se termine	
+ * @param managerShot
+ */
 	public void shoot(ManagerShot managerShot) {
 		int auxResistance = this.resistence;
 		while (auxResistance >= 4) {
@@ -45,7 +51,9 @@ public class Player {
 			auxResistance -=4;
 		}
 	}
-	
+/**
+ * Incrementa la experiencia para alguien que tiene mas de 18 de experiencia	
+ */
 	public void incrementDistance() {
 		if (exp >= 18) {
 			for (int i = 0; i < listShots.size(); i++) {
@@ -53,7 +61,10 @@ public class Player {
 			}
 		}
 	}
-
+/**
+ * Afecta los disparos dependiendo del clima
+ * @param weather
+ */
 	public void calculateShootsOnWeather(String weather) {
 		if (weather.equals("Lluvioso")) {
 			for (int i = 0; i < listShots.size(); i++) {
@@ -65,7 +76,9 @@ public class Player {
 			}
 		}
 	}
-
+/**
+ * Incrementa la experiencia del jugador en 2
+ */
 	public void incrementEXP() {
 		exp = exp+2;
 	}

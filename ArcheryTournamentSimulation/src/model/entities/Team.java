@@ -15,7 +15,10 @@ public class Team {
 		this.id = ID_BASE++;
 	}
 	
-	
+/**
+ * Identifica cuantos hombres hay en el team
+ * @return
+ */
 	public int getCountM() {
 		int count = 0;
 		for (int i = 0; i < playerList.size(); i++) {
@@ -25,7 +28,10 @@ public class Team {
 		}
 		return count;
 	}
-	
+/**
+ * Identifica la cantidad de mujeres en el team	
+ * @return
+ */
 	public int getCountF() {
 		int count = 0;
 		for (int i = 0; i < playerList.size(); i++) {
@@ -35,8 +41,12 @@ public class Team {
 		}
 		return count;
 	}
-	
-	public Player getPleyerLuckier(ManagerShot managerShot) {
+/**
+ * Obtiene el jugador con mas suerte del team	
+ * @param managerShot Clase que administra los disparos
+ * @return
+ */
+	public Player getPlayerLuckier(ManagerShot managerShot) {
 		Player max = null;
 		double aux =0;
 		for (int i = 0; i < playerList.size(); i++) {
@@ -50,7 +60,10 @@ public class Team {
 		}
 		return max;
 	}
-	
+/**
+ * Calcula la distancia total de un team	
+ * @return
+ */
 	public double calculateTotalDistance() {
 		double aux=0;
 		for (int i = 0; i < playerList.size(); i++) {
@@ -58,13 +71,18 @@ public class Team {
 		}
 		return aux;
 	}
-	
+/**
+ * Incrementa la distancia para el jugador que tenga más de 18 de exp
+ */
 	public void incrementDistance() {
 		for (int i = 0; i < playerList.size(); i++) {
 			playerList.get(i).incrementDistance();
 		}
 	}
-	
+/**
+ * Obtiene el jugador que ganó la ronda	
+ * @return
+ */
 	public Player getIndividualWinner() {
 		Player max = null;
 		double aux =0;
@@ -102,7 +120,10 @@ public class Team {
 	public void removeAll() {
 		playerList.removeAll(playerList);
 	}
-
+/**
+ * Obtiene los jugadores que tengan más de 10 de experiencia
+ * @return
+ */
 	public int getOnlyExp() {
 		int count = 0;
 		for (int i = 0; i < playerList.size(); i++) {
@@ -113,7 +134,7 @@ public class Team {
 		}
 		return count;
 	}
-	
+
 	public int getOnlyLucky() {
 		int count = 0;
 		for (int i = 0; i < playerList.size(); i++) {
@@ -124,7 +145,10 @@ public class Team {
 		}
 		return count;
 	}
-	
+/**
+ * Obtiene la lista de jugadores con más de 10 de experiencia	
+ * @return
+ */
 	public double getExpEarned() {
 		double exp = 0;
 		for (int i = 0; i < playerList.size(); i++) {

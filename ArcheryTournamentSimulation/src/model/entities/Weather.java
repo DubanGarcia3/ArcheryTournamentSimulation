@@ -17,6 +17,10 @@ public class Weather {
 	public Weather() {
 	}
 
+/**
+ * Carga la lista de climas para cada escenario
+ * @return
+ */
 	public List<Weather> getListWeather() {
 		List<Weather> list = new ArrayList<>();
 		try {

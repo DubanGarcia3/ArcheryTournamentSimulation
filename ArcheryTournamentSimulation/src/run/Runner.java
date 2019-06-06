@@ -9,9 +9,5 @@ public class Runner {
 		controller.loadData();
 		controller.createMatch();
 		controller.managerReports();
-//		controller.manageRaffleShot();
-//		controller.manageIndividualWinner();
-//		System.out.println("------------------------------------");
-//		controller.manageWeatherOnShot();
 	}
 }

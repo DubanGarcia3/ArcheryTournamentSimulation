@@ -14,7 +14,9 @@ public class ManagerShot {
 	public ManagerShot() {
 		this.listshot = new ArrayList<Shot>();
 	}
-	
+/**
+ * Agrega a la lista de disparos un nuevo disparo!	
+ */
 	public void addFromPersistence() {
 		try {
 			for (int i = 0; i < FileManager.readFileLanzamientos().size(); i++) {
@@ -26,12 +28,19 @@ public class ManagerShot {
 			System.out.println(e);
 		}
 	}
-	
+/**
+ * Este metodo regresa un disparo aleatorio de la lista de disparos total!	
+ * @return
+ */
 	public Shot getRandomShot() {
 		int a =(int) ((Math.random() * 499)+0);
 		return listshot.get(a);
 	}
-
+/**
+ * Crea el disparo desde persistencia
+ * @param shot
+ * @return
+ */
 	public Shot createShot(String []shot) {
 		return new Shot(Double.parseDouble(shot[0]), Double.parseDouble(shot[1]));
 	}
